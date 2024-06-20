@@ -23,5 +23,6 @@
     "@solidjs/router": "^0.13.5",
     "solid-icons": "^1.1.0",
     "solid-js": "^1.8.17"
-  }
+  },
+  "packageManager": "pnpm@9.0.6"
 }
