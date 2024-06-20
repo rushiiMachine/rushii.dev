@@ -13,6 +13,9 @@ a {
 .site-background {
     background-size: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-                url("/background.webp")
-                no-repeat;
+    url("/background.webp") no-repeat;
+}
+
+.hover-offset {
+    @apply transition hover:-translate-y-0.5 hover:translate-x-0.5
 }
