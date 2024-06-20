@@ -1,29 +1,44 @@
-import { JSX } from 'solid-js';
+import { JSX, ParentProps } from 'solid-js';
 import { URLS } from "./constants";
 import { Link } from "./Link";
+import { ClassProps } from "./Utils";
 import { Socials } from "./Socials";
 
 function App(): JSX.Element {
-    return <>
-        <div class="w-screen h-screen flex flex-col pt-16 pl-16 pr-16 site-background">
-            <div class="flex flex-col space-y-10 h-full pt-[2%] text-gray-200 text-base">
-                <div class="flex justify-between align-top pl-[25%] pr-[25%]">
-                    <div class="grow">
-                        <Bio/>
-                    </div>
-                    <Socials/>
+    return <div class="min-w-screen min-h-screen site-background p-16 pb-20">
+        <div class="flex flex-col h-full space-y-10 text-gray-200 text-base">
+            <div class="flex justify-center align-top space-x-8 pl-[25%]">
+                <div class="grow">
+                    <Bio/>
                 </div>
-
-                <Divider/>
-
-                <div class="flex justify-evenly space-x-20 h-full pl-5 pr-5">
-
-                    <div class="backdrop-brightness-[1.8] w-full rounded-md hover-offset hover:backdrop-brightness-[1.9]"/>
-                    <div class="backdrop-brightness-[1.8] w-full rounded-md hover-offset hover:backdrop-brightness-[1.9]"/>
-                    <div class="backdrop-brightness-[1.8] w-full rounded-md hover-offset hover:backdrop-brightness-[1.9]"/>
-                </div>
+                <Socials/>
+                <span class="min-w-10 max-w-[25%] grow"/>
             </div>
-            <Footer/>
+
+            <Divider/>
+
+            <div class="flex flex-wrap justify-evenly gap-x-10 gap-y-5 min-h-max pl-3 pr-3">
+                <InfoSection title="Projects"/>
+                <InfoSection title="Libraries"/>
+                <InfoSection title="Contact Me"/>
+            </div>
+        </div>
+        <Footer class="fixed bottom-0"/>
+    </div>;
+}
+
+interface InfoSectionProps extends ParentProps, ClassProps {
+    title: string,
+}
+
+function InfoSection(props: InfoSectionProps): JSX.Element {
+    return <>
+        <div class={"flex flex-col justify-start gap-y-4 grow basis-40 max-w-1/3 " + props.class || ""}>
+            <p class="text-3xl font-extralight ms-2">{props.title}</p>
+            <div class="backdrop-brightness-[1.8] grow hover:backdrop-brightness-[1.9]
+                        rounded-md hover-offset h-[100vh]">
+                {props.children}
+            </div>
         </div>
     </>;
 }
@@ -33,10 +48,10 @@ function Divider(): JSX.Element {
 }
 
 function Bio(): JSX.Element {
-    return <div>
-        <div class="flex space-x-8 items-center mb-5">
-            <p class="text-5xl font-semibold">Hi, I'm {" "}
-                <span class="text-pink-300 font-bold">rushii</span>!</p>
+    return <>
+        <div class="flex items-center mb-5">
+            <p class="text-5xl font-semibold">Hi, I'm <span class="text-pink-300 font-bold">rushii</span>!</p>
+            <span class="min-w-4 max-w-9 grow"/>
             <Link secure noReferrer
                   url={URLS.NameIpaReader}
                   class="text-nowrap text-2xl font-semibold text-gray-300
@@ -53,12 +68,14 @@ function Bio(): JSX.Element {
         </p>
         <p class="mt-3.5">You can find me in various communities you've probably never heard of.</p>
         <p class="mt-3.5">I am available for freelance work/jobs/internships.</p>
-    </div>
+    </>
 }
 
-function Footer(): JSX.Element {
+function Footer(props: ClassProps): JSX.Element {
     return <>
-        <div class="h-20 w-full flex flex-col justify-center items-center text-center text-xs text-gray-300 font-bold">
+        <div class={`h-20 w-full 
+                    flex flex-col justify-center items-center text-center
+                    text-xs text-gray-300 font-bold ` + props.class}>
             <p>rushii © All rights reserved</p>
             <Link url={URLS.WebsiteRepo}>Source Code <span class="text-red-500">❤️</span> GitHub</Link>
         </div>

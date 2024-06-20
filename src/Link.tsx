@@ -1,9 +1,8 @@
-import { JSX } from "solid-js";
+import { JSX, ParentProps } from "solid-js";
+import { ClassProps } from "./Utils";
 
-interface LinkProps {
-    children: JSX.Element,
+interface LinkProps extends ParentProps, ClassProps {
     url: string,
-    class?: string,
     secure?: boolean,
     noReferrer?: boolean,
 }
@@ -21,7 +20,7 @@ export function Link(props: LinkProps): JSX.Element {
            rel={rel}
            referrerpolicy={referrer}
            class={`transition-colors text-pink-100 hover:text-pink-200
-                   underline underline-offset-2 hover:underline hover:decoration-pink-300 ${props.class ?? ""}`}>
+                   underline underline-offset-2 hover:underline hover:decoration-pink-300 ${props.class || ""}`}>
             {props.children}
         </a>
     </>;
