@@ -1,6 +1,7 @@
 import {defineConfig} from "vite";
 import solidPlugin from "vite-plugin-solid";
 import devtoolsPlugin from "solid-devtools/vite";
+import {createHtmlPlugin} from "vite-plugin-html";
 
 export default defineConfig({
     plugins: [
@@ -15,6 +16,10 @@ export default defineConfig({
         solidPlugin({
             hot: true,
             ssr: true,
+        }),
+        createHtmlPlugin({
+            minify: true,
+            template: "index.html",
         }),
     ],
     server: {
