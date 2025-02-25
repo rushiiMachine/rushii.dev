@@ -1,5 +1,5 @@
 import autoprefixer from "autoprefixer";
-import tailwindcss from "tailwindcss";
+import tailwindcss from "@tailwindcss/postcss";
 
 /** @type {import('postcss-load-config').Config} */
 export default {
