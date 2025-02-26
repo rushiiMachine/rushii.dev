@@ -1,10 +1,12 @@
 import {defineConfig} from "vite";
-import solidPlugin from "vite-plugin-solid";
 import devtoolsPlugin from "solid-devtools/vite";
+import compileTime from "vite-plugin-compile-time"
 import {createHtmlPlugin} from "vite-plugin-html";
+import solidPlugin from "vite-plugin-solid";
 
 export default defineConfig({
     plugins: [
+        compileTime(),
         devtoolsPlugin({
             autoname: true,
             locator: {

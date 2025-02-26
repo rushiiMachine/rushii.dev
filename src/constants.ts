@@ -1,13 +1,17 @@
 import { BadgeData } from "./components/Badges";
 import { shuffleArray } from "./utils";
 
+// @ts-ignore
+const EMAIL_BASE64 = compileTime(btoa("contact@rushii.dev"));
+export const EMAIL = atob(EMAIL_BASE64);
+
 export const NAME_IPA_READING = "/ruːʃi/";
 
 export const URLS = {
     GithubProfile: "https://github.com/rushiiMachine",
     WebsiteRepo: "https://github.com/rushiiMachine/rushii.dev",
     Blog: "https://blog.rushii.dev",
-    NameIpaReader: "http://ipa-reader.xyz/?text=%2Fru%CB%90%CA%83i%2F",
+    NameIpaReader: "https://ipa-reader.com/?text=ru%CB%90%CA%83i&voice=Joey",
 
     Compose: "https://developer.android.com/develop/ui/compose",
     Kotlin: "https://kotlinlang.org",

@@ -14,7 +14,7 @@ function Badge(props: ClassProps & BadgeData): JSX.Element {
         rel="noopener"
         target="_blank"
         referrerpolicy="strict-origin-when-cross-origin"
-        class={`hover-offset hover-expand ` + props.class}>
+        class={`hover-offset hover-expand ${props.class || ""}`}>
         <img width={88}
              height={31}
              referrerpolicy="strict-origin-when-cross-origin"
@@ -27,7 +27,7 @@ function Badge(props: ClassProps & BadgeData): JSX.Element {
 }
 
 export function AllBadges(props: ClassProps) {
-    return <div class={`flex flex-row flex-wrap justify-center gap-4 ` + props.class}>
+    return <div class={`flex flex-row flex-wrap justify-center gap-4 ${props.class || ""}`}>
         <For each={DEVELOPER_BADGES}>
             {badge => <Badge {...badge}/>}
         </For>
