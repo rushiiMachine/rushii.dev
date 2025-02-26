@@ -3,6 +3,7 @@ import { NAME_IPA_READING, URLS } from "../constants";
 import { Link } from "../components/Link";
 import { ClassProps } from "../components/ClassProps";
 import { Socials } from "../components/Socials";
+import { AllBadges } from "../components/Badges";
 
 function Main(): JSX.Element {
     return <div class="bg-black text-gray-200 text-base">
@@ -16,6 +17,8 @@ function Main(): JSX.Element {
                 </div>
 
                 <Divider/>
+
+                <AllBadges class="ml-5 mr-5"/>
 
                 <div class="flex flex-wrap justify-evenly gap-x-10 gap-y-5 min-h-max pl-3 pr-3">
                     <InfoSection title="Projects"/>

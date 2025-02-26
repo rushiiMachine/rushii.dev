@@ -5,6 +5,11 @@ html {
     overflow-x: hidden;
 }
 
+/** Hide lazyload images alt text */
+img.lazyload:not([src]) {
+    visibility: hidden;
+}
+
 .os-scrollbar-handle {
     --os-handle-bg: #616161;
 }
@@ -20,4 +25,8 @@ a {
 
 .hover-offset {
     @apply transition hover:-translate-y-0.5 hover:translate-x-0.5
+}
+
+.hover-expand {
+    @apply transition hover:scale-105
 }
