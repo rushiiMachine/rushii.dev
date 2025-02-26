@@ -44,7 +44,27 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     {
         name: "Shoritsu",
         badgeUrl: "/88x31/shoritsu.webp",
-        linkUrl: "https://shoritsu.moe/",
+        linkUrl: "https://shoritsu.moe",
+    },
+    {
+        name: "KrystalSkull",
+        badgeUrl: "/88x31/krystalskull.jpg",
+        linkUrl: "https://krstlskll69.github.io",
+    },
+    {
+        name: "py.on",
+        badgeUrl: "/88x31/latte.png",
+        linkUrl: "https://latte.party",
+    },
+    {
+        name: "HAHALOSAH",
+        badgeUrl: "/88x31/hhls.png",
+        linkUrl: "https://hhls.xyz",
+    },
+    {
+        name: "fawn",
+        badgeUrl: "/88x31/fawn.png",
+        linkUrl: "https://fawn.moe",
     },
     //////////// Remote badges ////////////
     {
