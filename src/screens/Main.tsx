@@ -1,8 +1,9 @@
 import { JSX, ParentProps } from 'solid-js';
-import { EMAIL, NAME_IPA_READING, URLS } from "../constants";
+import { NAME_IPA_READING, URLS } from "../constants";
 import { Link } from "../components/Link";
 import { ClassProps } from "../components/ClassProps";
 import { AllBadges } from "../components/Badges";
+import Email from "../components/Email";
 
 function Main(): JSX.Element {
     return <div class="bg-black text-gray-200 text-base">
@@ -83,12 +84,6 @@ function Footer(props: ClassProps): JSX.Element {
             <Link url={URLS.WebsiteRepo}>Source Code <span class="text-red-500">❤️</span> GitHub</Link>
         </div>
     </>
-}
-
-function Email(props: ClassProps): JSX.Element {
-    return <Link {...props} url="" onClick={() => window.open(`mailto:${EMAIL}`, "_blank")}>
-        {EMAIL}
-    </Link>
 }
 
 export default Main;
