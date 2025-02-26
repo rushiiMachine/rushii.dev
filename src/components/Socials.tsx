@@ -1,6 +1,6 @@
 import { For, JSX } from "solid-js";
 import { Link } from "./Link";
-import { URLS } from "./constants";
+import { URLS } from "../constants";
 import { ImBlog } from "solid-icons/im";
 import { OcMarkgithub2 } from "solid-icons/oc";
 
@@ -19,7 +19,7 @@ const SOCIALS = [
 
 function SocialsItem(props: (typeof SOCIALS)[0]): JSX.Element {
     return <>
-        <Link secure url={props.url}>
+        <Link url={props.url}>
             <div class="group flex space-x-3 text-lg hover-offset">
                 <props.icon size={28} color="#FFFFFF"/>
                 <p class="text-pink-100 no-underline group-hover:underline group-hover:text-pink-300">{props.name}</p>
