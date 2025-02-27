@@ -21,6 +21,11 @@ export const URLS = {
 export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     //////////// Local badges ////////////
     {
+        name: "rushii",
+        badgeUrl: "/88x31/rushii.webp",
+        linkUrl: "https://rushii.dev",
+    },
+    {
         name: "Vencord",
         badgeUrl: "/88x31/vencord.webp",
         linkUrl: "https://vencord.dev",
@@ -64,11 +69,6 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         name: "HAHALOSAH",
         badgeUrl: "/88x31/hhls.png",
         linkUrl: "https://hhls.xyz",
-    },
-    {
-        name: "fawn",
-        badgeUrl: "/88x31/fawn.png",
-        linkUrl: "https://fawn.moe",
     },
     //////////// Remote badges ////////////
     {

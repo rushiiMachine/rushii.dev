@@ -9,6 +9,7 @@ Wait for some of these people to make badges:
 - Nin0
 - fres
 - Dolfies
+- fawn
 
 # Additions
 - Donor badge management
