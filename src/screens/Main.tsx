@@ -6,9 +6,9 @@ import { AllBadges } from "../components/Badges";
 import { BlogSection } from "../components/BlogPosts";
 import Email from "../components/Email";
 
-function Main(): JSX.Element {
-    return <div class="text-gray-200 text-base h-screen w-screen">
-        <div class="flex min-h-full site-background pt-16 pb-25">
+function Main(props: ClassProps): JSX.Element {
+    return <div class={`text-gray-200 text-base h-screen w-screen ${props.class || ""}`}>
+        <div class="flex min-h-full pt-16 pb-30">
             <div class="flex flex-col space-y-10 grow">
                 <div class="self-center max-w-200 mx-10">
                     <Bio/>
@@ -63,11 +63,10 @@ function Bio(): JSX.Element {
 
 function Footer(props: ClassProps): JSX.Element {
     return <>
-        <div class={`h-20 w-full 
-                    flex flex-col justify-center text-center
+        <div class={`flex flex-col h-20 w-full items-center
                     text-xs text-gray-300 font-bold ${props.class || ""}`}>
             <p>rushii © All rights reserved</p>
-            <Link url={URLS.WebsiteRepo}>Source Code <span class="text-red-500">❤️</span> GitHub</Link>
+            <Link url={URLS.WebsiteRepo} class="">Source Code <span class="text-red-500">❤️</span> GitHub</Link>
         </div>
     </>
 }
