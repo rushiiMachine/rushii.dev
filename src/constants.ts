@@ -11,6 +11,7 @@ export const URLS = {
     GithubProfile: "https://github.com/rushiiMachine",
     WebsiteRepo: "https://github.com/rushiiMachine/rushii.dev",
     Blog: "https://blog.rushii.dev",
+    BlogRSS: "https://blog.rushii.dev/atom.xml",
     NameIpaReader: "https://ipa-reader.com/?text=ru%CB%90%CA%83i&voice=Joey",
 
     Compose: "https://developer.android.com/develop/ui/compose",

@@ -3,6 +3,7 @@ import { NAME_IPA_READING, URLS } from "../constants";
 import { Link } from "../components/Link";
 import { ClassProps } from "../components/ClassProps";
 import { AllBadges } from "../components/Badges";
+import { BlogSection } from "../components/BlogPosts";
 import Email from "../components/Email";
 
 function Main(): JSX.Element {
