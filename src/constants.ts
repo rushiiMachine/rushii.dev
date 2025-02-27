@@ -10,6 +10,7 @@ export const NAME_IPA_READING = "/ruːʃi/";
 export const URLS = {
     GithubProfile: "https://github.com/rushiiMachine",
     WebsiteRepo: "https://github.com/rushiiMachine/rushii.dev",
+    BadgesInfo: "https://github.com/rushiiMachine/rushii.dev/blob/master/assets/BadgesInfo.md",
     Blog: "https://blog.rushii.dev",
     BlogRSS: "https://blog.rushii.dev/atom.xml",
     NameIpaReader: "https://ipa-reader.com/?text=ru%CB%90%CA%83i&voice=Joey",
