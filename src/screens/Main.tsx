@@ -1,4 +1,4 @@
-import { JSX, ParentProps } from 'solid-js';
+import { JSX } from 'solid-js';
 import { NAME_IPA_READING, URLS } from "../constants";
 import { Link } from "../components/Link";
 import { ClassProps } from "../components/ClassProps";
@@ -7,22 +7,22 @@ import { BlogSection } from "../components/BlogPosts";
 import Email from "../components/Email";
 
 function Main(): JSX.Element {
-    return <div class="bg-black text-gray-200 text-base">
-        <div class="min-w-screen min-h-screen site-background pt-16 pb-20">
-            <div class="flex flex-col h-full space-y-10 mx-10">
-                <div class="self-center max-w-200">
+    return <div class="text-gray-200 text-base h-screen w-screen">
+        <div class="flex min-h-full site-background pt-16 pb-25">
+            <div class="flex flex-col space-y-10 grow">
+                <div class="self-center max-w-200 mx-10">
                     <Bio/>
                 </div>
 
-                <Divider/>
+                <Divider class="mx-6"/>
 
-                <div class="flex flex-wrap justify-evenly gap-x-10 gap-y-5 min-h-max px-3">
-                    <InfoSection title="Projects"/>
+                <div class="flex flex-row flex-wrap justify-evenly gap-x-10 gap-y-5 min-h-max px-8">
+                    <BlogSection/>
                 </div>
 
-                <Divider/>
-                <AllBadges/>
-
+                <div class="grow"/>
+                <Divider class="mx-6"/>
+                <AllBadges class="mx-10"/>
             </div>
 
             <Footer class="fixed bottom-0"/>
@@ -30,29 +30,14 @@ function Main(): JSX.Element {
     </div>;
 }
 
-interface InfoSectionProps extends ParentProps, ClassProps {
-    title: string,
-}
 
-function InfoSection(props: InfoSectionProps): JSX.Element {
-    return <>
-        <div class={`flex flex-col justify-start gap-y-4 basis-200 ${props.class || ""}`}>
-            <p class="text-3xl font-extralight ms-2">{props.title}</p>
-            <div class="backdrop-brightness-[1.8] grow hover:backdrop-brightness-[1.9]
-                        rounded-md hover-offset h-[100vh]">
-                {props.children}
-            </div>
-        </div>
-    </>;
-}
-
-function Divider(): JSX.Element {
-    return <div class="h-[1px] bg-white opacity-30"/>;
+function Divider(props: ClassProps): JSX.Element {
+    return <div class={`h-[1px] bg-white opacity-30 ${props.class || ""}`}/>;
 }
 
 function Bio(): JSX.Element {
     return <>
-        <div class="flex flex-row flex-wrap gap-8 items-center mb-5">
+        <div class="flex flex-row flex-wrap gap-4 items-center mb-5">
             <p class="text-5xl font-light">hi, i'm <span class="italic">
                 <span class="text-pink-300 font-normal">rushii</span>
                 !
@@ -66,7 +51,7 @@ function Bio(): JSX.Element {
                 {/*Add a question mark with tooltip explaining what this is*/}
             </Link>
         </div>
-        <p>I'm a developer living on the pacific coast.</p>
+        <p>I'm a developer on the pacific coast.</p>
         <br/>
         <p>
             I love working with <Link url={URLS.Kotlin}>Kotlin</Link> and <Link url={URLS.Rust}>Rust</Link>, making
