@@ -6,6 +6,8 @@ downloaded from various places that are not hyperlink-able. Full list of badges 
 
 If you want to add my badge, please avoid directly embedding it; hyperlink it instead!
 
+<img width="88" height="31" alt="rushii's site" src="https://rushii.dev/88x31/rushii.webp"/>
+
 ```html
 <a rel="noopener" referrerpolicy="strict-origin" href="https://rushii.dev">
 	<img width="88"

@@ -72,12 +72,12 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         badgeUrl: "/88x31/hhls.png",
         linkUrl: "https://hhls.xyz",
     },
-    //////////// Remote badges ////////////
     {
         name: "Vendicated",
-        badgeUrl: "https://github.com/Vendicated/Vendicated/assets/45497981/5794a4e1-292f-46cc-af3a-b33a27a2f15e",
+        badgeUrl: "/88x31/vendicated.gif",
         linkUrl: "https://vendicated.dev",
     },
+    //////////// Remote badges ////////////
     {
         name: "Wing",
         badgeUrl: "https://wingio.xyz/88x31/badge.gif",
