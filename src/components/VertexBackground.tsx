@@ -64,8 +64,21 @@ function draw(
     particles: Particle[],
     mouseX?: number,
     mouseY?: number,
+    mousePressed?: boolean,
 ) {
     ctx.reset();
+
+    // Move points closer to point when mouse pressed
+    if (mousePressed) {
+        const speed = 0.2;
+
+        for (const p of particles) {
+            const slope = (mouseY - p.y) / (mouseX - p.x);
+            const delta = Math.sqrt((speed ** 2) / (slope ** 2 + 1));
+            p.x += delta * (mouseX >= p.x ? 1 : -1);
+            p.y += delta * (mouseY >= p.y ? 1 : -1);
+        }
+    }
 
     for (const p1 of particles) {
         drawParticle(
@@ -89,7 +102,7 @@ function initDraw(
 ) {
     const ctx = canvas.getContext("2d");
     const particles: Particle[] = new Array(particleCount);
-    let canvasMouseX: number, canvasMouseY: number;
+    let canvasMouseX: number, canvasMouseY: number, mousePressed: boolean;
 
     // Initialize particles
     for (let i = 0; i < particleCount; i++) {
@@ -114,9 +127,12 @@ function initDraw(
         const scaleY = canvas.height / rect.height;
         canvasMouseX = (e.clientX - rect.x) * scaleX;
         canvasMouseY = (e.clientY - rect.y) * scaleY;
+        mousePressed = (e.buttons & 1) == 1; // Left Mouse Button
     };
     if (enableMouse) {
         window.addEventListener("mousemove", mouseListener);
+        window.addEventListener("mouseup", mouseListener);
+        window.addEventListener("mousedown", mouseListener);
     }
 
     let frameId: number;
@@ -124,13 +140,15 @@ function initDraw(
         setTimeout(() => {
             frameId = requestAnimationFrame(drawWrap);
         }, 6);
-        draw(canvas, ctx, particles, canvasMouseX, canvasMouseY);
+        draw(canvas, ctx, particles, canvasMouseX, canvasMouseY, mousePressed);
     }
     frameId = requestAnimationFrame(drawWrap);
 
     onCleanup(() => {
         cancelAnimationFrame(frameId);
         window.removeEventListener("mousemove", mouseListener);
+        window.removeEventListener("mouseup", mouseListener);
+        window.removeEventListener("mousedown", mouseListener);
         window.removeEventListener("resize", resizeListener);
     });
 }
