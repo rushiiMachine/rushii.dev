@@ -16,6 +16,48 @@ interface Particle {
     size: number;
 }
 
+function drawParticle(
+    p: Particle,
+    isMouse: boolean,
+    canvas: HTMLCanvasElement,
+    ctx: CanvasRenderingContext2D,
+    particles: Particle[],
+) {
+    let connectingLines = 0;
+
+    // Connect vertices
+    for (const p2 of particles) {
+        // Cheap way to avoid drawing the same line twice (one originating from each particle)
+        if (p.x > p2.x && !isMouse) continue;
+
+        const distance = Math.hypot(p2.x - p.x, p2.y - p.y);
+        // TODO: allow configuring max distance
+        if (!distance || distance > 250) continue;
+
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 1.3;
+        ctx.stroke();
+        connectingLines++;
+    }
+
+    // Move particle
+    const nearParticlesBoost = connectingLines * 0.2 + 1;
+    p.x += p.speed * Math.sin(p.angle) * nearParticlesBoost;
+    p.y += p.speed * Math.cos(p.angle) * nearParticlesBoost;
+
+    if (p.y > canvas.height)
+        p.y = 1;
+    if (p.x > canvas.width)
+        p.x = 1;
+    if (p.x < 1)
+        p.x = canvas.width;
+    if (p.y < 1)
+        p.y = canvas.height;
+}
+
 function draw(
     canvas: HTMLCanvasElement,
     ctx: CanvasRenderingContext2D,
@@ -23,54 +65,20 @@ function draw(
     mouseX?: number,
     mouseY?: number,
 ) {
-    function drawParticle(p: Particle, isMouse?: boolean) {
-        let connectingLines = 0;
-
-        // // Draw vertex
-        // ctx.beginPath();
-        // ctx.arc(p.x, p.y, p.size, 0, 2 * Math.PI);
-        // ctx.fillStyle = "white";
-        // ctx.fill();
-
-        // Connect vertices
-        for (const p2 of particles) {
-            // Cheap way to avoid drawing the same line twice (one originating from each particle)
-            if (p.x > p2.x && !isMouse) continue;
-
-            const distance = Math.hypot(p2.x - p.x, p2.y - p.y);
-            // TODO: allow configuring max distance
-            if (!distance || distance > 250) continue;
-
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = "white";
-            ctx.lineWidth = 1.3;
-            ctx.stroke();
-            connectingLines++;
-        }
-
-        // Move particle
-        const nearParticlesBoost = connectingLines * 0.2 + 1;
-        p.x += p.speed * Math.sin(p.angle) * nearParticlesBoost;
-        p.y += p.speed * Math.cos(p.angle) * nearParticlesBoost;
-
-        if (p.y > canvas.height)
-            p.y = 1;
-        if (p.x > canvas.width)
-            p.x = 1;
-        if (p.x < 1)
-            p.x = canvas.width;
-        if (p.y < 1)
-            p.y = canvas.height;
-    }
-
     ctx.reset();
+
     for (const p1 of particles) {
-        drawParticle(p1);
+        drawParticle(
+            p1, false,
+            canvas, ctx, particles,
+        );
     }
+
     if (mouseX || mouseY) {
-        drawParticle({ x: mouseX, y: mouseY, angle: 0, speed: 0, size: 0, }, true)
+        drawParticle(
+            { x: mouseX, y: mouseY, angle: 0, speed: 0, size: 0, }, true,
+            canvas, ctx, particles,
+        )
     }
 }
 

@@ -7,10 +7,10 @@ const isTouchDevice = "ontouchstart" in window;
 
 function App(): JSX.Element {
     return <div class="flex">
-        <Main class="z-2"/>
+        <Main/>
 
         <Show when={!useReducedMotion}>
-            <div class="z-1 fixed opacity-15">
+            <div class="-z-1 fixed opacity-15">
                 <VertexBackground
                     particleCount={55}
                     enableMouse={!isTouchDevice}
@@ -18,7 +18,7 @@ function App(): JSX.Element {
             </div>
         </Show>
 
-        <div class="fixed z-0 site-background w-screen h-screen"/>
+        <div class="fixed -z-2 site-background w-screen h-screen"/>
     </div>;
 }
 
