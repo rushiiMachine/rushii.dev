@@ -66,7 +66,7 @@ function Footer(props: ClassProps): JSX.Element {
         <div class={`flex flex-col h-20 w-full items-center
                     text-xs text-gray-300 font-bold ${props.class || ""}`}>
             <p>rushii © All rights reserved</p>
-            <Link url={URLS.WebsiteRepo} class="">Source Code <span class="text-red-500">❤️</span> GitHub</Link>
+            <Link url={URLS.WebsiteRepo}>Source Code <span class="text-red-500">❤️</span> GitHub</Link>
         </div>
     </>
 }

@@ -21,9 +21,14 @@ function Badge(props: ClassProps & BadgeData): JSX.Element {
              height={31}
              referrerpolicy="strict-origin-when-cross-origin"
              alt={`${props.name}'s site`}
-             data-src={props.badgeUrl}
-             class="lazyload max-w-none max-h-none"
+             src={props.badgeUrl}
+             loading="lazy"
+             class="max-w-none max-h-none"
              style="image-rendering: pixelated;"
+             onError={(e) => {
+                 console.error(`Failed to load ${props.name}'s badge!`)
+                 e.currentTarget.parentElement.remove();
+             }}
         />
     </a>;
 }

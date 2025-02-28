@@ -6,11 +6,6 @@ html {
     background-color: black;
 }
 
-/** Hide lazyload images alt text */
-img.lazyload:not([src]) {
-    visibility: hidden;
-}
-
 .os-scrollbar-handle {
     --os-handle-bg: #616161;
 }
