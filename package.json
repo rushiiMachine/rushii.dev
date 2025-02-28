@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@corvu/tooltip": "^0.2.2",
+    "@octokit/types": "^13.8.0",
     "overlayscrollbars": "^2.11.1",
     "solid-icons": "^1.1.0",
     "solid-js": "^1.9.5"

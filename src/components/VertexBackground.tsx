@@ -70,7 +70,7 @@ function draw(
 
     // Move points closer to point when mouse pressed
     if (mousePressed) {
-        const speed = 0.2;
+        const speed = 0.15;
 
         for (const p of particles) {
             const slope = (mouseY - p.y) / (mouseX - p.x);

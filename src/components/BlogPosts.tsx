@@ -76,7 +76,7 @@ export function BlogSection(): JSX.Element {
     const [posts] = createResource(fetchBlogPosts);
 
     return <Show when={posts()}>
-        <div class="flex flex-col justify-start gap-y-4 basis-180">
+        <div class="flex flex-col justify-start gap-y-4 basis-170">
             <p class="text-3xl font-extralight">Blog</p>
             <For each={posts()}>
                 {(post, idx) =>

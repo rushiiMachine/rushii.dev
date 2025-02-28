@@ -4,6 +4,13 @@ html {
     font-family: Inter, system-ui, sans-serif;
     overflow-x: hidden;
     background-color: black;
+
+    @apply select-none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
 }
 
 .os-scrollbar-handle {

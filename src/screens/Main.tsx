@@ -1,10 +1,11 @@
 import { JSX } from 'solid-js';
-import { NAME_IPA_READING, URLS } from "../constants";
+import { NAME_IPA_READING, PROJECT_REPOS, URLS } from "../constants";
 import { Link } from "../components/Link";
 import { ClassProps } from "../components/ClassProps";
 import { AllBadges } from "../components/Badges";
 import { BlogSection } from "../components/BlogPosts";
 import Email from "../components/Email";
+import { ProjectsSection } from "../components/Projects";
 
 function Main(props: ClassProps): JSX.Element {
     return <div class={`text-gray-200 text-base h-screen w-screen ${props.class || ""}`}>
@@ -17,6 +18,7 @@ function Main(props: ClassProps): JSX.Element {
                 <Divider class="mx-6"/>
 
                 <div class="flex flex-row flex-wrap justify-evenly gap-x-10 gap-y-5 min-h-max px-8">
+                    <ProjectsSection repos={PROJECT_REPOS}/>
                     <BlogSection/>
                 </div>
 

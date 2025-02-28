@@ -1,5 +1,6 @@
 import { BadgeData } from "./components/Badges";
 import { shuffleArray } from "./utils";
+import { RepositoryName } from "./components/Projects";
 
 // @ts-ignore
 const EMAIL_BASE64 = compileTime(btoa("contact@rushii.dev"));
@@ -19,6 +20,20 @@ export const URLS = {
     Kotlin: "https://kotlinlang.org",
     Rust: "https://www.rust-lang.org",
 }
+
+export const PROJECT_REPOS: RepositoryName[] = shuffleArray([
+    "Aliucord/Aliucord",
+    "Aliucord/Manager",
+    "MateriiApps/Opencord",
+    "rushiiMachine/osu-patcher",
+    "rushiiMachine/osu-switcher",
+    "rushiiMachine/rust-gradle-plugin",
+    "rushiiMachine/zip-android",
+    "rushiiMachine/aliucord-plugins",
+    "rushiiMachine/caddy-ja3",
+    "rushiiMachine/ktor-impersonate",
+    "rushiiMachine/XSpoofSignatures",
+]);
 
 export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     //////////// Local badges ////////////
