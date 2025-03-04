@@ -119,3 +119,20 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         linkUrl: "https://rinici.de",
     }
 ]);
+
+/**
+ * A limited subset of GitHub's language colors mapped by thier name.
+ */
+// Obtained from https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml
+export const LANGUAGE_COLORS: Record<string, string> = {
+    "C": "#555555",
+    "C#": "#178600",
+    "C++": "#f34b7d",
+    "Elixir": "#6e4a7e",
+    "Go": "#00ADD8",
+    "Java": "#b07219",
+    "JavaScript": "#f1e05a",
+    "Kotlin": "#A97BFF",
+    "Rust": "#dea584",
+    "TypeScript": "#3178c6",
+}
