@@ -3,6 +3,7 @@ import { createResource, For, JSX, Show } from "solid-js";
 import { Endpoints } from "@octokit/types";
 import { OcLaw2, OcLinkexternal2, OcStarfill2 } from "solid-icons/oc";
 import { Link } from "./Link";
+import { makeCache } from "@solid-primitives/resource";
 
 type GetUserRepoType = Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"];
 type GetUserReposType = Endpoints["GET /users/{username}/repos"]["response"]["data"];
@@ -106,9 +107,14 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
 }
 
 export function ProjectsSection(props: { repos: RepositoryName[] } & ClassProps): JSX.Element {
-    const [repos] = createResource(props.repos, fetchRepositories)
+    const [cachingFetcher] = makeCache(() => fetchRepositories(props.repos), {
+        expires: 8.64e+7, // 1 Day
+        storage: window.localStorage,
+        storageKey: "CACHE_PROJECT_REPOS",
+    });
+    const [repos] = createResource(cachingFetcher);
 
-    return <Show when={repos()}>
+    return <Show when={repos()?.length}>
         <div class="flex flex-col justify-start gap-y-4">
             <p class="text-3xl font-extralight">Projects</p>
             <div class="grid grid-cols-2 gap-6 min-w-max">

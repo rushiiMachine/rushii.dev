@@ -14,6 +14,9 @@ importers:
       '@octokit/types':
         specifier: ^13.8.0
         version: 13.8.0
+      '@solid-primitives/resource':
+        specifier: ^0.4.0
+        version: 0.4.0(solid-js@1.9.5)
       overlayscrollbars:
         specifier: ^2.11.1
         version: 2.11.1
@@ -510,6 +513,11 @@ packages:
     resolution: {integrity: sha512-tO9MDAc2pNjpcRd5B8LWbiR1qzIgvGZ5BtTuO98N7CLwd+fnuyGwtlQtJpz5hcLcTnoawpQYLpiRGNgaYW+YzQ==}
     peerDependencies:
       solid-js: ^1.6.12
+
+  '@solid-primitives/resource@0.4.0':
+    resolution: {integrity: sha512-3cB2y3ezMTUjio4U1Z7V+K/fLNzFAsu3j82X6RkVLlOll34MADwkGT6cVq2XWwswhsWowWhYoH9aG17/sxMwSg==}
+    peerDependencies:
+      solid-js: ^1.6.0
 
   '@solid-primitives/rootless@1.5.0':
     resolution: {integrity: sha512-YJ+EveQeDv9DLqfDKfsPAAGy2x3vBruoD23yn+nD2dT84QjoBxWT1T0qA0TMFjek6/xuN3flqnHtQ4r++4zdjg==}
@@ -1685,6 +1693,10 @@ snapshots:
       '@solid-primitives/rootless': 1.5.0(solid-js@1.9.5)
       '@solid-primitives/static-store': 0.1.0(solid-js@1.9.5)
       '@solid-primitives/utils': 6.3.0(solid-js@1.9.5)
+      solid-js: 1.9.5
+
+  '@solid-primitives/resource@0.4.0(solid-js@1.9.5)':
+    dependencies:
       solid-js: 1.9.5
 
   '@solid-primitives/rootless@1.5.0(solid-js@1.9.5)':
