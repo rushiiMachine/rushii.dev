@@ -4,6 +4,7 @@ import { Endpoints } from "@octokit/types";
 import { OcLaw2, OcLinkexternal2, OcStarfill2 } from "solid-icons/oc";
 import { Link } from "./Link";
 import { makeCache } from "@solid-primitives/resource";
+import { humanize } from "../utils";
 
 type GetUserRepoType = Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"];
 type GetUserReposType = Endpoints["GET /users/{username}/repos"]["response"]["data"];
@@ -87,9 +88,9 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
 
             <div class="flex flex-row gap-6 opacity-60 text-md font-normal mt-4 text-center">
                 <Link url={props.repo.url + "/stargazers"} class="!text-white !no-underline">
-                    <div class="flex flex-row gap-2 items-center">
+                    <div class="flex flex-row gap-1 items-center">
                         <OcStarfill2 size={20} color="#E3B341" class="align-middle"/>
-                        <p class="!text-white !no-underline">{props.repo.stars}</p>
+                        <p class="!text-white !no-underline">{humanize(props.repo.stars)}</p>
                     </div>
                 </Link>
 
