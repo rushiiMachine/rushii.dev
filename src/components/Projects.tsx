@@ -18,7 +18,6 @@ export interface Repository {
     description: string;
     url: string;
     license?: string;
-    licenseUrl?: string;
     language?: string;
     stars: number;
 }
@@ -61,7 +60,6 @@ export async function fetchRepositories(repositoryNames: RepositoryName[]): Prom
                     description: repo.description,
                     url: repo.html_url,
                     license: repo.license?.spdx_id,
-                    licenseUrl: repo.license?.url,
                     language: repo.language,
                     stars: repo.stargazers_count ?? 0,
                 }));
@@ -104,7 +102,9 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
                 </Link>
 
                 <Show when={props.repo.license}>
-                    <Link noReferrer url={props.repo.licenseUrl} class="!text-white !no-underline">
+                    <Link noReferrer newSite
+                          url={`https://spdx.org/licenses/preview/${props.repo.license}`}
+                          class="!text-white !no-underline">
                         <div class="flex flex-row gap-2 items-center">
                             <OcLaw2 size={20} color="#FFFFFF"/>
                             <p>{props.repo.license}</p>
