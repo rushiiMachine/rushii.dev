@@ -127,7 +127,7 @@ function initDraw(
         const scaleY = canvas.height / rect.height;
         canvasMouseX = (e.clientX - rect.x) * scaleX;
         canvasMouseY = (e.clientY - rect.y) * scaleY;
-        mousePressed = (e.buttons & 1) == 1; // Left Mouse Button
+        mousePressed = (e.buttons & 1) === 1; // Left Mouse Button
     };
     if (enableMouse) {
         window.addEventListener("mousemove", mouseListener);

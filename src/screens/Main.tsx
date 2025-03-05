@@ -32,7 +32,6 @@ function Main(props: ClassProps): JSX.Element {
     </div>;
 }
 
-
 function Divider(props: ClassProps): JSX.Element {
     return <div class={`h-[1px] bg-white opacity-30 ${props.class || ""}`}/>;
 }
@@ -50,7 +49,6 @@ function Bio(): JSX.Element {
                          transition-colors hover:text-pink-100
                          no-underline hover-offset">
                 {NAME_IPA_READING}
-                {/*Add a question mark with tooltip explaining what this is*/}
             </Link>
         </div>
         <p>I'm a developer on the pacific coast.</p>

@@ -2,6 +2,7 @@ import { createMemo, createResource, For, JSX, Show } from "solid-js";
 import { Link } from "./Link";
 import { URLS } from "../constants";
 import { makeCache } from "@solid-primitives/resource";
+import { ClassProps } from "./ClassProps";
 
 export interface BlogPostData {
     title: string;
@@ -77,7 +78,7 @@ function BlogPost(post: BlogPostData): JSX.Element {
     </a>;
 }
 
-export function BlogSection(): JSX.Element {
+export function BlogSection(props: ClassProps): JSX.Element {
     const [cachingFetcher] = makeCache(fetchBlogPosts, {
         expires: 8.64e+7, // 1 Day
         storage: window.localStorage,
@@ -86,7 +87,7 @@ export function BlogSection(): JSX.Element {
     const [posts] = createResource(cachingFetcher);
 
     return <Show when={posts()?.length}>
-        <div class="flex flex-col justify-start gap-y-4 basis-170">
+        <div class={`flex flex-col justify-start gap-y-4 basis-170 ${props.class || ""}`}>
             <p class="text-3xl font-extralight">Blog</p>
             <For each={posts()}>
                 {(post, idx) =>

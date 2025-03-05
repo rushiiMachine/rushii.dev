@@ -65,7 +65,7 @@ export function AllBadges(props: ClassProps) {
     return <div class={`flex flex-row flex-wrap justify-center gap-4 ${props.class || ""}`}>
         <For each={DEVELOPER_BADGES}>{badge =>
             <Switch>
-                <Match when={badge.name == "rushii"}>
+                <Match when={badge.name === "rushii"}>
                     <MyBadgeTooltip>
                         <Badge {...badge}/>
                     </MyBadgeTooltip>

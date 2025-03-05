@@ -24,7 +24,7 @@ export const URLS = {
 export const PROJECT_REPOS: RepositoryName[] = shuffleArray([
     "Aliucord/Aliucord",
     "Aliucord/Manager",
-    "MateriiApps/Opencord",
+    "MateriiApps/OpenCord",
     "rushiiMachine/osu-patcher",
     "rushiiMachine/osu-switcher",
     "rushiiMachine/rust-gradle-plugin",

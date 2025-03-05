@@ -35,7 +35,7 @@ export async function fetchRepositories(repositoryNames: RepositoryName[]): Prom
     const promises: Promise<Repository[]>[] = [];
 
     for (const [owner, repos] of Object.entries(resourceOwners)) {
-        const url: string = repos.length == 1
+        const url: string = repos.length === 1
             ? `https://api.github.com/repos/${owner}/${repos[0]}`
             : `https://api.github.com/users/${owner}/repos`;
 
@@ -74,7 +74,7 @@ export async function fetchRepositories(repositoryNames: RepositoryName[]): Prom
 }
 
 export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Element {
-    return <a href={props.repo.url} aria-label="A GitHub repository" class="!no-underline">
+    return <a href={props.repo.url} target="_blank" aria-label="A GitHub repository" class="!no-underline">
         <div class={`group flex flex-col gap-2 p-6 rounded-lg hover-offset
                      bg-white/20 border-l-4 border-white/30
                      ${props.class || ""}`}>
@@ -125,7 +125,7 @@ export function ProjectsSection(props: { repos: RepositoryName[] } & ClassProps)
     const [repos] = createResource(cachingFetcher);
 
     return <Show when={repos()?.length}>
-        <div class="flex flex-col justify-start gap-y-4">
+        <div class={`flex flex-col justify-start gap-y-4 ${props.class || ""}`}>
             <p class="text-3xl font-extralight">Projects</p>
             <div class="grid grid-cols-2 gap-6 min-w-max">
                 <For each={repos()}>

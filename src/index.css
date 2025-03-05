@@ -4,6 +4,7 @@ html {
     font-family: Inter, system-ui, sans-serif;
     overflow-x: hidden;
     background-color: black;
+    color: white;
 
     @apply select-none;
     -webkit-user-drag: none;
