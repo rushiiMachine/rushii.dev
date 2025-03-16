@@ -74,7 +74,7 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     },
     {
         name: "KrystalSkull",
-        badgeUrl: "/88x31/krystalskull.jpg",
+        badgeUrl: "/88x31/krystalskull.gif",
         linkUrl: "https://krstlskll69.github.io",
     },
     {
@@ -117,7 +117,13 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         name: "rini",
         badgeUrl: "https://rinici.de/buttons/rinicide.png",
         linkUrl: "https://rinici.de",
-    }
+    },
+    {
+        name: "livia",
+        badgeUrl: "https://livia.my/static/57.gif",
+        linkUrl: "https://livia.my",
+    },
+
 ]);
 
 /**

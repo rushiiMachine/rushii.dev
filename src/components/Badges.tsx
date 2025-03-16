@@ -23,7 +23,7 @@ function Badge(props: ClassProps & BadgeData): JSX.Element {
              alt={`${props.name}'s site`}
              src={props.badgeUrl}
              loading="lazy"
-             class="max-w-none max-h-none"
+             class="max-w-none max-h-none shadow-xl"
              style="image-rendering: pixelated;"
              onError={(e) => {
                  console.error(`Failed to load ${props.name}'s badge!`)
