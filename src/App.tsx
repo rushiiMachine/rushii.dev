@@ -3,7 +3,6 @@ import Main from "./screens/Main";
 import { VertexBackground } from "./components/VertexBackground";
 
 const useReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isTouchDevice = "ontouchstart" in window;
 
 function App(): JSX.Element {
     return <div class="flex">
@@ -11,13 +10,11 @@ function App(): JSX.Element {
 
         <Show when={!useReducedMotion}>
             <div class="-z-1 fixed opacity-15">
-                <VertexBackground
-                    particleCount={55}
-                    enableMouse={!isTouchDevice}
-                    class="max-w-full max-h-full"/>
+                <VertexBackground class="max-w-full max-h-full"/>
             </div>
         </Show>
 
+        {/*FIXME: not scaling properly?*/}
         <div class="fixed -z-2 site-background w-screen h-screen"/>
     </div>;
 }

@@ -1,7 +1,7 @@
 import { JSX, onCleanup, onMount } from "solid-js";
 import { ClassProps } from "./ClassProps";
 
-// This was initially based on Vitox's particle library from LiquidBounce, ported to web:
+// This was initially inspired by Vitox's particle library from LiquidBounce:
 // https://github.com/CCBlueX/LiquidBounce/tree/legacy/src/main/java/net/vitox
 
 function randomInRange(min: number, max: number): number {
@@ -16,9 +16,30 @@ interface Particle {
     size: number;
 }
 
+function createParticle(canvasWidth: number, canvasHeight: number): Particle {
+    return {
+        x: randomInRange(0, canvasWidth),
+        y: randomInRange(0, canvasHeight),
+        angle: randomInRange(0, 365),
+        speed: randomInRange(0.1, 0.15),
+        size: 0.5 + Math.random() * 1.3,
+    };
+}
+
+// Models: https://www.desmos.com/calculator/kgbnufgauj
+
+function requiredParticleCount(canvasWidth: number): number {
+    return Math.trunc(Math.sqrt(canvasWidth) * 1.5);
+}
+
+function requiredLineLength(canvasWidth: number): number {
+    return canvasWidth / 20 + 100;
+}
+
 function drawParticle(
     p: Particle,
     isMouse: boolean,
+    maxDistance: number,
     canvas: HTMLCanvasElement,
     ctx: CanvasRenderingContext2D,
     particles: Particle[],
@@ -31,8 +52,7 @@ function drawParticle(
         if (p.x > p2.x && !isMouse) continue;
 
         const distance = Math.hypot(p2.x - p.x, p2.y - p.y);
-        // TODO: allow configuring max distance
-        if (!distance || distance > 250) continue;
+        if (!distance || distance > maxDistance) continue;
 
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
@@ -80,44 +100,46 @@ function draw(
         }
     }
 
+    const maxLineLength = requiredLineLength(canvas.width);
+
     for (const p1 of particles) {
         drawParticle(
             p1, false,
-            canvas, ctx, particles,
+            maxLineLength, canvas, ctx, particles,
         );
     }
 
     if (mouseX || mouseY) {
         drawParticle(
             { x: mouseX, y: mouseY, angle: 0, speed: 0, size: 0, }, true,
-            canvas, ctx, particles,
+            maxLineLength, canvas, ctx, particles,
         )
     }
 }
 
 function initDraw(
-    particleCount: number,
     enableMouse: boolean,
     canvas: HTMLCanvasElement,
 ) {
     const ctx = canvas.getContext("2d");
-    const particles: Particle[] = new Array(particleCount);
+    const particles: Particle[] = new Array(requiredParticleCount(canvas.width));
     let canvasMouseX: number, canvasMouseY: number, mousePressed: boolean;
 
     // Initialize particles
-    for (let i = 0; i < particleCount; i++) {
-        particles[i] = {
-            x: randomInRange(0, canvas.width),
-            y: randomInRange(0, canvas.height),
-            angle: randomInRange(0, 365),
-            speed: randomInRange(0.1, 0.15),
-            size: 0.5 + Math.random() * 1.3,
-        };
+    for (let i = 0; i < particles.length; i++) {
+        particles[i] = createParticle(canvas.width, canvas.height);
     }
 
     const resizeListener = (_e: UIEvent) => {
         canvas.width = window.visualViewport.width;
         canvas.height = window.visualViewport.height;
+
+
+        const newParticleCount = requiredParticleCount(canvas.width);
+        while (particles.length > newParticleCount)
+            particles.pop();
+        while (particles.length < newParticleCount)
+            particles.push(createParticle(canvas.width, canvas.height));
     }
     window.addEventListener("resize", resizeListener);
 
@@ -153,20 +175,17 @@ function initDraw(
     });
 }
 
-interface BackgroundProps extends ClassProps {
-    particleCount: number;
-    enableMouse: boolean;
-}
+const isTouchDevice = "ontouchstart" in window;
 
-export function VertexBackground(props: BackgroundProps): JSX.Element {
+export function VertexBackground(props: ClassProps): JSX.Element {
     let canvas: HTMLCanvasElement = undefined;
 
-    onMount(() => initDraw(props.particleCount, props.enableMouse, canvas));
+    onMount(() => initDraw(!isTouchDevice, canvas));
 
     return <canvas
         ref={canvas}
         width={window.visualViewport.width}
-        height={window.visualViewport.height} // TODO: not scaling properly?
+        height={window.visualViewport.height}
         class={props.class || ""}
     />
 }

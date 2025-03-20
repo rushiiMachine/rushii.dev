@@ -18,4 +18,3 @@ Wait for some of these people to make badges:
   - email
   - github
   - gpg key?
-- Make vertex background's vertex count & max line length scale based on DPI 
