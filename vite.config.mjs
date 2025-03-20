@@ -24,6 +24,9 @@ export default defineConfig({
             template: "index.html",
         }),
     ],
+    esbuild: {
+        legalComments: "none",
+    },
     server: {
         port: 3000,
     },
