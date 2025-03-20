@@ -37,7 +37,7 @@ function Divider(props: ClassProps): JSX.Element {
 }
 
 function Bio(): JSX.Element {
-    return <div class="flex flex-col gap-0 max-w-200">
+    return <div class="flex flex-col gap-0 max-w-200 select-text">
         <div class="flex flex-row flex-wrap gap-4 items-center mb-5">
             <p class="text-5xl font-light">hi, i'm <span class="italic">
                 <span class="text-pink-300 font-normal">rushii</span>

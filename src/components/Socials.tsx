@@ -21,7 +21,7 @@ function SocialsItem(props: (typeof SOCIALS)[0]): JSX.Element {
     return <>
         <Link url={props.url}>
             <div class="group flex space-x-3 text-lg hover-offset">
-                <props.icon size={28} color="#FFFFFF"/>
+                <props.icon size={24} color="#FFFFFF"/>
                 <p class="text-pink-100 no-underline group-hover:underline group-hover:text-pink-300">{props.name}</p>
             </div>
         </Link>
@@ -31,7 +31,7 @@ function SocialsItem(props: (typeof SOCIALS)[0]): JSX.Element {
 export function Socials(): JSX.Element {
     return <>
         <div class="flex flex-col justify-center space-y-5 items-start
-                    border-l-[0.5px] border-white border-opacity-30 pl-10">
+                    border-l-[0.5px] border-white/60 pl-6">
             <For each={SOCIALS}>
                 {(item) => SocialsItem(item)}
             </For>

@@ -79,7 +79,7 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
         target="_blank"
         referrerpolicy="strict-origin"
         class={`group flex flex-col gap-2 p-6 rounded-lg hover-offset
-                bg-white/20 border-l-4 border-white/30 !no-underline
+                bg-white/20 border-l-4 border-white/50 hover:border-pink-200 shadow-xl !no-underline
                 ${props.class || ""}`}>
         <div class="flex flex-row gap-2 w-full text-white/80 group-hover:text-pink-200">
             <p>{props.repo.owner} / <span class="font-semibold">{props.repo.name}</span></p>
@@ -93,15 +93,19 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
                     opacity-60 text-md font-normal text-center text-nowrap">
             <Show when={props.repo.language && LANGUAGE_COLORS[props.repo.language]}>
                 <div class="flex flex-row gap-2 items-center">
-                        <div class="rounded-full size-4"
+                    <div class="rounded-full size-4 brightness-125"
                          style={`background-color: ${LANGUAGE_COLORS[props.repo.language]}`}/>
                     <p>{props.repo.language}</p>
                 </div>
             </Show>
 
             <Link url={props.repo.url + "/stargazers"} class="!text-white !no-underline">
-                    <div class="flex flex-row gap-1 items-center">
-                        <OcStarfill2 size={20} color="#E3B341" class="align-middle"/>
+                <div class="flex flex-row gap-1 items-center hover-offset">
+                    <OcStarfill2
+                        size={20}
+                        color="#E3B341"
+                        class="align-middle"
+                        style={{ "filter": "drop-shadow(0px 3px 3px #E3B34188)" }}/>
                     <p class="!text-white !no-underline">{humanize(props.repo.stars)}</p>
                 </div>
             </Link>

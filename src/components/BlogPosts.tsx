@@ -56,7 +56,7 @@ function BlogPost(post: BlogPostData): JSX.Element {
 
     return <a href={post.url} aria-label="A blog post" class="!no-underline">
         <div class="group flex flex-col gap-3 p-8 rounded-xl hover-offset
-                    bg-white/15 border-l-4 border-white/30">
+                    bg-white/15 border-l-4 border-white/50 hover:border-pink-200 shadow-xl">
             <time class="text-sm font-semibold opacity-50 mb-2"
                   dateTime={post.published}>
                 {timeFormatted()}

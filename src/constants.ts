@@ -123,11 +123,10 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         badgeUrl: "https://livia.my/static/57.gif",
         linkUrl: "https://livia.my",
     },
-
 ]);
 
 /**
- * A limited subset of GitHub's language colors mapped by thier name.
+ * A limited subset of GitHub's language colors mapped by name.
  */
 // Obtained from https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml
 export const LANGUAGE_COLORS: Record<string, string> = {
