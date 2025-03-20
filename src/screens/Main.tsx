@@ -9,8 +9,8 @@ import { ProjectsSection } from "../components/Projects";
 
 function Main(props: ClassProps): JSX.Element {
     return <div class={`text-gray-200 text-base h-screen w-screen ${props.class || ""}`}>
-        <div class="flex min-h-full pt-16 pb-30">
-            <div class="flex flex-col gap-y-10 grow">
+        <div class="flex flex-col min-h-full">
+            <div class="flex flex-col pt-16 grow gap-y-10 min-h-full">
                 <div class="flex flex-row flex-wrap gap-10 self-center mx-10">
                     <Bio/>
                 </div>
@@ -27,7 +27,7 @@ function Main(props: ClassProps): JSX.Element {
                 <AllBadges class="mx-10"/>
             </div>
 
-            <Footer class="fixed bottom-0"/>
+            <Footer class="my-10"/>
         </div>
     </div>;
 }
@@ -63,7 +63,7 @@ function Bio(): JSX.Element {
 
 function Footer(props: ClassProps): JSX.Element {
     return <>
-        <div class={`flex flex-col h-20 w-full items-center
+        <div class={`flex flex-col w-full items-center
                     text-xs text-gray-300 font-bold ${props.class || ""}`}>
             <p>rushii © All rights reserved</p>
             <Link url={URLS.WebsiteRepo}>Source Code <span class="text-red-500">❤️</span> GitHub</Link>
