@@ -74,44 +74,48 @@ export async function fetchRepositories(repositoryNames: RepositoryName[]): Prom
 }
 
 export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Element {
-    return <a href={props.repo.url} target="_blank" aria-label="A GitHub repository" class="!no-underline">
-        <div class={`group flex flex-col gap-2 p-6 rounded-lg hover-offset
-                     bg-white/20 border-l-4 border-white/30
-                     ${props.class || ""}`}>
-            <div class="flex flex-row gap-2 w-full text-white/80 group-hover:text-pink-200">
-                <p>{props.repo.owner} / <span class="font-semibold">{props.repo.name}</span></p>
-                <div class="grow"/>
-                <OcLinkexternal2 size={24} color="#FFFFFF" class="opacity-60"/>
-            </div>
-            <p class="text-sm font-normal opacity-80">{props.repo.description}</p>
+    return <a
+        href={props.repo.url}
+        target="_blank"
+        referrerpolicy="strict-origin"
+        class={`group flex flex-col gap-2 p-6 rounded-lg hover-offset
+                bg-white/20 border-l-4 border-white/30 !no-underline
+                ${props.class || ""}`}>
+        <div class="flex flex-row gap-2 w-full text-white/80 group-hover:text-pink-200">
+            <p>{props.repo.owner} / <span class="font-semibold">{props.repo.name}</span></p>
+            <div class="grow"/>
+            <OcLinkexternal2 size={24} color="#FFFFFF" class="opacity-60"/>
+        </div>
+        <p class="text-sm font-normal opacity-80">{props.repo.description}</p>
 
-            <div class="flex flex-row gap-5 opacity-60 text-md font-normal mt-4 text-center">
-                <Show when={props.repo.language && LANGUAGE_COLORS[props.repo.language]}>
-                    <div class="flex flex-row gap-2 items-center">
+        <div class="grow"/>
+        <div class="flex flex-row flex-wrap gap-x-5 gap-y-2
+                    opacity-60 text-md font-normal text-center text-nowrap">
+            <Show when={props.repo.language && LANGUAGE_COLORS[props.repo.language]}>
+                <div class="flex flex-row gap-2 items-center">
                         <div class="rounded-full size-4"
-                             style={`background-color: ${LANGUAGE_COLORS[props.repo.language]}`}/>
-                        <p>{props.repo.language}</p>
-                    </div>
-                </Show>
+                         style={`background-color: ${LANGUAGE_COLORS[props.repo.language]}`}/>
+                    <p>{props.repo.language}</p>
+                </div>
+            </Show>
 
-                <Link url={props.repo.url + "/stargazers"} class="!text-white !no-underline">
+            <Link url={props.repo.url + "/stargazers"} class="!text-white !no-underline">
                     <div class="flex flex-row gap-1 items-center">
                         <OcStarfill2 size={20} color="#E3B341" class="align-middle"/>
-                        <p class="!text-white !no-underline">{humanize(props.repo.stars)}</p>
+                    <p class="!text-white !no-underline">{humanize(props.repo.stars)}</p>
+                </div>
+            </Link>
+
+            <Show when={props.repo.license}>
+                <Link noReferrer newSite
+                      url={`https://spdx.org/licenses/preview/${props.repo.license}`}
+                      class="!text-white !no-underline">
+                    <div class="flex flex-row gap-2 items-center">
+                        <OcLaw2 size={20} color="#FFFFFF"/>
+                        <p>{props.repo.license}</p>
                     </div>
                 </Link>
-
-                <Show when={props.repo.license}>
-                    <Link noReferrer newSite
-                          url={`https://spdx.org/licenses/preview/${props.repo.license}`}
-                          class="!text-white !no-underline">
-                        <div class="flex flex-row gap-2 items-center">
-                            <OcLaw2 size={20} color="#FFFFFF"/>
-                            <p>{props.repo.license}</p>
-                        </div>
-                    </Link>
-                </Show>
-            </div>
+            </Show>
         </div>
     </a>
 }
@@ -127,10 +131,12 @@ export function ProjectsSection(props: { repos: RepositoryName[] } & ClassProps)
     return <Show when={repos()?.length}>
         <div class={`flex flex-col justify-start gap-y-4 ${props.class || ""}`}>
             <p class="text-3xl font-extralight">Projects</p>
-            <div class="grid grid-cols-2 gap-6 min-w-max">
-                <For each={repos()}>
-                    {repo => <ProjectRepo repo={repo} class="basis-120 min-w-120"/>}
-                </For>
+            <div class="flex flex-row flex-wrap gap-5">
+                <For each={repos()}>{repo =>
+                    <ProjectRepo
+                        repo={repo}
+                        class="grow max-w-170 md:min-w-100 xl:min-w-120"/>
+                }</For>
             </div>
         </div>
     </Show>;

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+    --breakpoint-3xl: 120rem;
+}
+
 html {
     font-family: Inter, system-ui, sans-serif;
     overflow-x: hidden;
