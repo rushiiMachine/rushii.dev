@@ -94,37 +94,31 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         badgeUrl: "/88x31/vendicated.gif",
         linkUrl: "https://vendicated.dev",
     },
-    //////////// Remote badges ////////////
     {
         name: "Wing",
-        badgeUrl: "https://wingio.xyz/88x31/badge.gif",
+        badgeUrl: "/88x31/wing.gif",
         linkUrl: "https://wingio.xyz",
     },
     {
         name: "Chloe",
-        badgeUrl: "https://sapphic.moe/buttons/friends/sapphic.png",
+        badgeUrl: "/88x31/sapphic.png",
         linkUrl: "https://sapphic.moe",
     },
     {
-        name: "Maggie",
-        badgeUrl: "https://maggiepi.site/88x31s/maggie8831.gif",
-        linkUrl: "https://maggiepi.site",
-    },
-    {
         name: "Lewisakura",
-        badgeUrl: "https://lewisakura.moe/88x31.png",
+        badgeUrl: "/88x31/lewisakura.png",
         linkUrl: "https://lewisakura.moe",
     },
     {
         name: "rini",
-        badgeUrl: "https://rinici.de/buttons/rinicide.png",
-        linkUrl: "https://rinici.de",
+        badgeUrl: "/88x31/rinicide.png",
+        linkUrl: "https://github.com/rniii/rinici.de",
     },
-    {
-        name: "livia",
-        badgeUrl: "https://livia.my/static/57.gif",
-        linkUrl: "https://livia.my",
-    },
+    // {
+    //     name: "lívia",
+    //     badgeUrl: "https://livia.my/static/57.gif",
+    //     linkUrl: "https://livia.my",
+    // },
 ]);
 
 /**
