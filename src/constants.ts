@@ -10,6 +10,7 @@ export const NAME_IPA_READING = "/ruːʃi/";
 
 export const URLS = {
     GithubProfile: "https://github.com/rushiiMachine",
+    GithubSponsor: "https://github.com/sponsors/rushiiMachine",
     WebsiteRepo: "https://github.com/rushiiMachine/rushii.dev",
     BadgesInfo: "https://github.com/rushiiMachine/rushii.dev/blob/master/assets/BadgesInfo.md",
     Blog: "https://blog.rushii.dev",
@@ -25,14 +26,15 @@ export const PROJECT_REPOS: RepositoryName[] = shuffleArray([
     "Aliucord/Aliucord",
     "Aliucord/Manager",
     "MateriiApps/OpenCord",
+    "rushiiMachine/aliucord-plugins",
+    "rushiiMachine/caddy-ja3",
+    "rushiiMachine/discord-dracula",
+    "rushiiMachine/ktor-impersonate",
     "rushiiMachine/osu-patcher",
     "rushiiMachine/osu-switcher",
     "rushiiMachine/rust-gradle-plugin",
-    "rushiiMachine/zip-android",
-    "rushiiMachine/aliucord-plugins",
-    "rushiiMachine/caddy-ja3",
-    "rushiiMachine/ktor-impersonate",
     "rushiiMachine/XSpoofSignatures",
+    "rushiiMachine/zip-android",
 ]);
 
 export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
@@ -139,5 +141,6 @@ export const LANGUAGE_COLORS: Record<string, string> = {
     "JavaScript": "#f1e05a",
     "Kotlin": "#A97BFF",
     "Rust": "#dea584",
+    "SCSS": "#c6538c",
     "TypeScript": "#3178c6",
 }
