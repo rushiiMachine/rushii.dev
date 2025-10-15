@@ -36,8 +36,8 @@ export async function fetchRepositories(repositoryNames: RepositoryName[]): Prom
 
     for (const [owner, repos] of Object.entries(resourceOwners)) {
         const url: string = repos.length === 1
-            ? `https://api.github.com/repos/${owner}/${repos[0]}`
-            : `https://api.github.com/users/${owner}/repos`;
+            ? `https://api.github.com/repos/${owner}/${repos[0]}?per_page=100&sort=created&direction=asc`
+            : `https://api.github.com/users/${owner}/repos?per_page=100&sort=created&direction=asc`;
 
         const resp = fetch(url, {
             headers: {

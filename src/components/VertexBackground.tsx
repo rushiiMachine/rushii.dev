@@ -134,7 +134,6 @@ function initDraw(
         canvas.width = window.visualViewport.width;
         canvas.height = window.visualViewport.height;
 
-
         const newParticleCount = requiredParticleCount(canvas.width);
         while (particles.length > newParticleCount)
             particles.pop();
