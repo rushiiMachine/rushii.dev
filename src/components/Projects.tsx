@@ -105,7 +105,7 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
                         size={20}
                         color="#E3B341"
                         class="align-middle"
-                        style={{ "filter": "drop-shadow(0px 3px 3px #E3B34188)" }}/>
+                        style={{ "filter": "drop-shadow(0px 0px 4px #E3B34188)" }}/>
                     <p class="!text-white !no-underline">{humanize(props.repo.stars)}</p>
                 </div>
             </Link>

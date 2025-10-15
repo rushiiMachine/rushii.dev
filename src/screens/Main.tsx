@@ -6,13 +6,15 @@ import { AllBadges } from "../components/Badges";
 import { BlogSection } from "../components/BlogPosts";
 import Email from "../components/Email";
 import { ProjectsSection } from "../components/Projects";
+import { Socials } from "../components/Socials";
 
 function Main(props: ClassProps): JSX.Element {
     return <div class={`text-gray-200 text-base h-screen w-screen ${props.class || ""}`}>
         <div class="flex flex-col min-h-full">
             <div class="flex flex-col pt-16 grow gap-y-10 min-h-full">
-                <div class="flex flex-row flex-wrap gap-10 self-center mx-10">
+                <div class="flex flex-row flex-wrap self-center mx-10 gap-10">
                     <Bio/>
+                    <Socials/>
                 </div>
 
                 <Divider class="mx-6"/>
