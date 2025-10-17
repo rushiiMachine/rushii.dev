@@ -81,30 +81,32 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
         class={`group flex flex-col gap-2 p-6 rounded-lg hover-offset
                 bg-white/20 border-l-4 border-white/50 hover:border-pink-200 shadow-xl !no-underline
                 ${props.class || ""}`}>
-        <div class="flex flex-row gap-2 w-full text-white/80 group-hover:text-pink-200">
+        <div class="flex flex-row gap-2 w-full text-white/80 group-hover:text-pink-200
+                    text-sm lg:text-base">
             <p>{props.repo.owner} / <span class="font-semibold">{props.repo.name}</span></p>
             <div class="grow"/>
-            <OcLinkexternal2 size={24} color="#FFFFFF" class="opacity-60"/>
+            <OcLinkexternal2 size={20} color="#FFFFFF" class="opacity-60 hidden md:block"/>
         </div>
-        <p class="text-sm font-normal opacity-80">{props.repo.description}</p>
+        <p class="text-xs lg:text-sm font-normal opacity-70">{props.repo.description}</p>
 
         <div class="grow"/>
-        <div class="flex flex-row flex-wrap gap-x-5 gap-y-2
-                    opacity-60 text-md font-normal text-center text-nowrap">
+        <div class="flex flex-row flex-wrap items-center gap-x-4 gap-y-2
+                    opacity-60 font-normal text-center text-nowrap
+                    text-xs md:text-sm">
             <Show when={props.repo.language && LANGUAGE_COLORS[props.repo.language]}>
                 <div class="flex flex-row gap-2 items-center">
-                    <div class="rounded-full size-4 brightness-125"
+                    <div class="rounded-full brightness-125 size-3.5 md:size-4"
                          style={`background-color: ${LANGUAGE_COLORS[props.repo.language]}`}/>
                     <p>{props.repo.language}</p>
                 </div>
             </Show>
 
             <Link url={props.repo.url + "/stargazers"} class="!text-white !no-underline">
-                <div class="flex flex-row gap-1 items-center hover-offset">
+                <div class="flex flex-row gap-2 items-center hover-offset">
                     <OcStarfill2
                         size={20}
                         color="#E3B341"
-                        class="align-middle"
+                        class="align-middle size-4 md:size-auto"
                         style={{ "filter": "drop-shadow(0px 0px 4px #E3B34188)" }}/>
                     <p class="!text-white !no-underline">{humanize(props.repo.stars)}</p>
                 </div>
@@ -115,7 +117,10 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
                       url={`https://spdx.org/licenses/preview/${props.repo.license}`}
                       class="!text-white !no-underline">
                     <div class="flex flex-row gap-2 items-center">
-                        <OcLaw2 size={20} color="#FFFFFF"/>
+                        <OcLaw2
+                            size={20}
+                            color="#FFFFFF"
+                            class="size-4 md:size-auto"/>
                         <p>{props.repo.license}</p>
                     </div>
                 </Link>
@@ -134,8 +139,10 @@ export function ProjectsSection(props: { repos: RepositoryName[] } & ClassProps)
 
     return <Show when={repos()?.length}>
         <div class={`flex flex-col justify-start gap-y-4 ${props.class || ""}`}>
-            <p class="text-3xl font-extralight">Projects</p>
-            <div class="flex flex-row flex-wrap gap-5">
+            <p class="text-3xl font-extralight
+                      ml-4 md:ml-0">Projects</p>
+            <div class="flex flex-row flex-wrap
+                        gap-1 lg:gap-4">
                 <For each={repos()}>{repo =>
                     <ProjectRepo
                         repo={repo}

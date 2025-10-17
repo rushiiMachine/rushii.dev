@@ -74,14 +74,17 @@ export function BlogSection(props: ClassProps): JSX.Element {
 
     return <Show when={posts()?.length}>
         <div class={`flex flex-col justify-start gap-y-4 basis-170 ${props.class || ""}`}>
-            <p class="text-3xl font-extralight">Blog</p>
-            <For each={posts()}>
-                {(post, idx) =>
-                    <Show when={idx() < 8}>
-                        <BlogPost {...post}/>
-                    </Show>
-                }
-            </For>
+            <p class="text-3xl font-extralight
+                      ml-4 md:ml-0">Blog</p>
+            <div class="flex flex-col gap-1 lg:gap-4">
+                <For each={posts()}>
+                    {(post, idx) =>
+                        <Show when={idx() < 8}>
+                            <BlogPost {...post}/>
+                        </Show>
+                    }
+                </For>
+            </div>
             <Show when={(posts()?.length ?? 0) > 8}>
                 <Link url={URLS.Blog}
                       class="self-center py-2 px-3 mt-4 max-w-max rounded-md hover-offset

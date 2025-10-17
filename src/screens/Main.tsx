@@ -19,8 +19,8 @@ function Main(props: ClassProps): JSX.Element {
 
                 <Divider class="mx-6"/>
 
-                <div class="flex flex-row flex-wrap gap-15 min-h-max
-                            px-8 md:px-16 3xl:justify-center">
+                <div class="flex flex-row flex-wrap min-h-max gap-15
+                            px-3 md:px-16 3xl:justify-center">
                     <ProjectsSection repos={PROJECT_REPOS} class="3xl:max-w-7/12"/>
                     <BlogSection class="3xl:max-w-full"/>
                 </div>
