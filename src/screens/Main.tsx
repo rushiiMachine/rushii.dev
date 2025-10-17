@@ -40,12 +40,17 @@ function Main(props: ClassProps): JSX.Element {
 }
 
 function Bio(props: ClassProps): JSX.Element {
-    return <div class={`flex flex-col gap-0 max-w-200 select-text ${props.class || ""}`}>
-        <div class="flex flex-row flex-wrap gap-4 items-center mb-5">
-            <p class="text-5xl font-light">hi, i'm <span class="italic">
-                <span class="text-pink-300 font-normal">rushii</span>
-                !
-            </span></p>
+    return <div class={`flex flex-col gap-4 max-w-200 select-text ${props.class || ""}`}>
+        <div class="flex flex-row text-nowrap gap-4 items-center mb-5">
+            <img width={32}
+                 height={32}
+                 alt={null}
+                 src="/favicon.png"
+                 class="max-w-none max-h-none"
+                 style="image-rendering: smooth;"/>
+            <p class="font-light text-4xl md:text-5xl">
+                hii, i'm <span class="text-pink-300 font-normal">rushii</span>!
+            </p>
             <Link noReferrer
                   url={URLS.NameIpaReader}
                   class="text-nowrap text-2xl font-semibold text-gray-300
@@ -55,13 +60,21 @@ function Bio(props: ClassProps): JSX.Element {
                 {NAME_IPA_READING}
             </Link>
         </div>
-        <p>I'm a developer on the pacific coast.</p>
-        <br/>
+        <p>I'm a software developer living on the pacific coast.</p>
         <p>
+            I'm someone who's passionate about Android internals, Android modding, and developing various utilities
+            that improve user experience for a variety of things.
             I love working with <Link url={URLS.Kotlin}>Kotlin</Link> and <Link url={URLS.Rust}>Rust</Link>, making
-            apps with <Link url={URLS.Compose}>Jetpack Compose</Link>, and reverse-engineering/modding Android apps.
+            Android apps with <Link url={URLS.Compose}>Jetpack Compose</Link>, and reverse-engineering + modding
+            other people's Android apps.
         </p>
-        <p class="mt-3.5">I am available for jobs/internships/freelancing. Please contact me at <Email/>.</p>
+        <p>
+            Most of my own projects are open-source, and I sometimes contribute back to projects that I use as well.
+            Nowadays, I'm mostly working on <Link url={URLS.Aliucord}>Aliucord</Link>, an open-source mod for a
+            proprietary, legacy, Discord client. It has gathered over 1+ million downloads and over 250+ unique
+            plugins contributed by dozens of developers.
+        </p>
+        <p class="mt-4">I am also open to jobs, internships, and contract work. Please contact me at <Email/></p>
     </div>
 }
 

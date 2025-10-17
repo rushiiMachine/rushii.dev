@@ -18,6 +18,11 @@ html {
     user-drag: none;
 }
 
+br {
+    line-height: 2rem;
+    height: 2rem;
+}
+
 .os-scrollbar-handle {
     --os-handle-bg: #616161;
 }

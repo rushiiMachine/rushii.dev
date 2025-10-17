@@ -18,7 +18,7 @@ const SOCIALS = [
         icon: BiSolidPencil,
     },
     {
-        name: "Sponsor",
+        name: "Sponsor Me!",
         url: URLS.GithubSponsor,
         icon: AiOutlineHeart,
         color: "#DB61A2",

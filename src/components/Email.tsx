@@ -11,6 +11,7 @@ function Email(props: ClassProps): JSX.Element {
 
     return <Link {...props}
                  url=""
+                 class="text-pink-300"
                  onClick={() => window.open(`mailto:${EMAIL}`, "_blank")}>
         {user}@<span class="hidden">IGNOREME</span>{domain}
     </Link>

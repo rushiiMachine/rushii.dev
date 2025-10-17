@@ -20,6 +20,8 @@ export const URLS = {
     Compose: "https://developer.android.com/develop/ui/compose",
     Kotlin: "https://kotlinlang.org",
     Rust: "https://www.rust-lang.org",
+
+    Aliucord: "https://github.com/Aliucord/Aliucord",
 }
 
 export const PROJECT_REPOS: RepositoryName[] = shuffleArray([
