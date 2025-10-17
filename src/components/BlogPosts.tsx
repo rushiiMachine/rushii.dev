@@ -7,35 +7,22 @@ import { ClassProps } from "./ClassProps";
 export interface BlogPostData {
     title: string;
     summary: string;
-    tags: { name: string, url: string }[];
+    tags: string[];
     published: string;
     url: string;
 }
 
 export const fetchBlogPosts: () => Promise<BlogPostData[]> = async () => {
-    const response = await fetch(URLS.BlogRSS);
-    const text = await response.text();
-    const xml = new window.DOMParser().parseFromString(text, "text/xml");
-    const posts: BlogPostData[] = [];
+    const json = await fetch(URLS.BlogPosts)
+        .then(res => res.json() as Promise<any>);
 
-    for (const entry of xml.querySelectorAll("entry")) {
-        const tags = [];
-
-        for (const tag of entry.querySelectorAll("category")) {
-            tags.push({
-                name: tag.getAttribute("term"),
-                url: tag.getAttribute("scheme"),
-            });
-        }
-
-        posts.push({
-            title: entry.querySelector("title").textContent,
-            summary: entry.querySelector("summary").textContent,
-            tags,
-            published: entry.querySelector("published").textContent,
-            url: entry.querySelector("link").getAttribute("href"),
-        });
-    }
+    const posts: BlogPostData[] = json.map(post => ({
+        title: post.title,
+        summary: post.description,
+        published: post.published,
+        tags: post.tags,
+        url: URLS.Blog + post.link,
+    }));
 
     // Sort descending by time published
     posts.sort(({ published: a }, { published: b }) =>
@@ -67,10 +54,9 @@ function BlogPost(post: BlogPostData): JSX.Element {
             <Show when={post.tags.length > 0}>
                 <div class="flex flex-row flex-wrap gap-2 mt-4">
                     <For each={post.tags}>{tag =>
-                        <Link url={tag.url}
-                              class="px-2 py-1.5 rounded-lg hover-offset !no-underline text-sm bg-white/20">
-                            {tag.name}
-                        </Link>
+                        <div class="px-2 py-1.5 rounded-lg hover-offset !no-underline text-sm bg-white/20">
+                            {tag}
+                        </div>
                     }</For>
                 </div>
             </Show>

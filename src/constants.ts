@@ -14,7 +14,7 @@ export const URLS = {
     WebsiteRepo: "https://github.com/rushiiMachine/rushii.dev",
     BadgesInfo: "https://github.com/rushiiMachine/rushii.dev/blob/master/assets/BadgesInfo.md",
     Blog: "https://blog.rushii.dev",
-    BlogRSS: "https://blog.rushii.dev/atom.xml",
+    BlogPosts: "https://blog.rushii.dev/posts.json",
     NameIpaReader: "https://ipa-reader.com/?text=ru%CB%90%CA%83i&voice=Joey",
 
     Compose: "https://developer.android.com/develop/ui/compose",
