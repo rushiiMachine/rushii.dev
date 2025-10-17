@@ -62,7 +62,7 @@ function MyBadgeTooltip(props: ParentProps) {
 }
 
 export function AllBadges(props: ClassProps) {
-    return <div class={`flex flex-row flex-wrap justify-center gap-4 ${props.class || ""}`}>
+    return <div class={`flex flex-row flex-wrap justify-center gap-2 ${props.class || ""}`}>
         <For each={DEVELOPER_BADGES}>{badge =>
             <Switch>
                 <Match when={badge.name === "rushii"}>
@@ -93,7 +93,7 @@ export function ProfileBadge(props: ClassProps & BadgeData): JSX.Element {
              src={props.badgeUrl}
              loading="lazy"
              class="max-w-none max-h-none shadow-xl rounded-md"
-             style="image-rendering: crisp-edges;"
+             style="image-rendering: smooth;"
              onError={(e) => {
                  console.error(`Failed to load ${props.name}'s GitHub profile image!`);
                  e.currentTarget.parentElement.remove();

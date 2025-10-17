@@ -26,7 +26,8 @@ function Main(props: ClassProps): JSX.Element {
                 </div>
 
                 <Divider class="mx-6 grow"/>
-                <div class="flex flex-col gap-y-5">
+                <div class="flex flex-col gap-y-6 self-center
+                            lg:max-w-3/4 2xl:max-w-2/3 3xl:max-w-1/2">
                     <AllBadges class="mx-10"/>
                     <AllProfileBadges class="mx-10"/>
                 </div>

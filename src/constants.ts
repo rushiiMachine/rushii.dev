@@ -113,43 +113,54 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         badgeUrl: "/88x31/rinicide.png",
         linkUrl: "https://github.com/rniii/rinici.de",
     },
+    {
+        name: "Xinto",
+        badgeUrl: "/88x31/xinto.png",
+        linkUrl: "https://xinto.dev",
+    },
+    {
+        name: "Vap",
+        badgeUrl: "/88x31/vap.png",
+        linkUrl: "https://github.com/vap0r1ze",
+    },
+    {
+        name: "AAgaming",
+        badgeUrl: "/88x31/aagaming.png",
+        linkUrl: "https://aagaming.me",
+    },
+    {
+        name: "Paige",
+        badgeUrl: "/88x31/paige.gif",
+        linkUrl: "https://codeberg.org/paige",
+    },
     // {
     //     name: "lívia",
-    //     badgeUrl: "https://livia.my/static/57.gif",
-    //     linkUrl: "https://livia.my",
+    //     // badgeUrl: "https://livia.my/static/57.gif",
+    //     badgeUrl: "https://avatars.githubusercontent.com/u/238446247?v=4", // TODO
+    //     linkUrl: "https://github.com/mreowmrrp",
     // },
+    // {
+    //     name: "mantikafasi",
+    //     badgeUrl: "https://avatars.githubusercontent.com/u/67705577?v=4", // TODO
+    //     linkUrl: "https://github.com/mantikafasi",
+    // },
+    {
+        name: "zt",
+        badgeUrl: "/88x31/zt.png",
+        linkUrl: "https://zt64.dev",
+    },
 ]);
 
 export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
     {
-        name: "lívia",
-        badgeUrl: "https://avatars.githubusercontent.com/u/238446247?v=4",
-        linkUrl: "https://github.com/mreowmrrp",
-    },
-    {
-        name: "Xinto",
-        badgeUrl: "https://avatars.githubusercontent.com/u/48173186?v=4",
-        linkUrl: "https://xinto.dev/",
-    },
-    {
-        name: "AAgaming",
-        badgeUrl: "https://avatars.githubusercontent.com/u/42613600?v=4",
-        linkUrl: "https://aagaming.me",
-    },
-    {
-        name: "mantikafasi",
-        badgeUrl: "https://avatars.githubusercontent.com/u/67705577?v=4",
-        linkUrl: "https://github.com/mantikafasi",
-    },
-    {
-        name: "zt",
-        badgeUrl: "https://avatars.githubusercontent.com/u/31907977?v=4",
-        linkUrl: "https://zt64.dev",
-    },
-    {
         name: "Dolfies",
         badgeUrl: "https://avatars.githubusercontent.com/u/47677887?v=4",
         linkUrl: "https://github.com/dolfies",
+    },
+    {
+        name: "Dziurwa",
+        badgeUrl: "https://avatars.githubusercontent.com/u/54191536?v=4",
+        linkUrl: "https://github.com/Dziurwa14",
     },
     {
         name: "fawn",
@@ -170,6 +181,21 @@ export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
         name: "OmegaSunkey",
         badgeUrl: "https://omegasunkey.pages.dev/avatar.webp",
         linkUrl: "https://omegasunkey.pages.dev/",
+    },
+    {
+        name: "Rosie",
+        badgeUrl: "https://avatars.githubusercontent.com/u/94182437?v=4",
+        linkUrl: "https://github.com/acquitelol",
+    },
+    {
+        name: "llsc",
+        badgeUrl: "https://avatars.githubusercontent.com/u/42747613?v=4",
+        linkUrl: "https://llsc12.me",
+    },
+    {
+        name: "Canny",
+        badgeUrl: "https://avatars.githubusercontent.com/u/198346728?v=4",
+        linkUrl: "https://github.com/Canny1913",
     },
 ]);
 
