@@ -4,6 +4,7 @@ import { URLS } from "../constants";
 import { OcLinkexternal2, OcMarkgithub2 } from "solid-icons/oc";
 import { BiSolidPencil } from "solid-icons/bi";
 import { AiOutlineHeart } from "solid-icons/ai";
+import { ClassProps } from "./ClassProps";
 
 const SOCIALS = [
     {
@@ -39,10 +40,9 @@ function SocialsItem(props: (typeof SOCIALS)[0]): JSX.Element {
     </>;
 }
 
-export function Socials(): JSX.Element {
+export function Socials(props: ClassProps): JSX.Element {
     return <>
-        <div class="flex flex-col justify-center space-y-2 items-stretch
-                    border-l-[0.5px] border-white/20 pl-8">
+        <div class={`flex flex-col justify-center space-y-2 items-stretch ${props.class || ""}`}>
             <For each={SOCIALS}>
                 {(item) => SocialsItem(item)}
             </For>

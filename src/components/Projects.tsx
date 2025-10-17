@@ -6,6 +6,7 @@ import { Link } from "./Link";
 import { makeCache } from "@solid-primitives/resource";
 import { LANGUAGE_COLORS } from "../constants";
 import { humanize } from "../utils";
+import { Section } from "./Section";
 
 type GetUserRepoType = Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"];
 type GetUserReposType = Endpoints["GET /users/{username}/repos"]["response"]["data"];
@@ -138,17 +139,15 @@ export function ProjectsSection(props: { repos: RepositoryName[] } & ClassProps)
     const [repos] = createResource(cachingFetcher);
 
     return <Show when={repos()?.length}>
-        <div class={`flex flex-col justify-start gap-y-4 ${props.class || ""}`}>
-            <p class="text-3xl font-extralight
-                      ml-4 md:ml-0">Projects</p>
-            <div class="flex flex-row flex-wrap
+        <Section title="Projects" class={props.class}>
+            <div class="flex flex-row flex-wrap justify-center
                         gap-1 lg:gap-4">
                 <For each={repos()}>{repo =>
                     <ProjectRepo
                         repo={repo}
-                        class="grow max-w-170 md:min-w-100 xl:min-w-120"/>
+                        class="grow max-w-150 md:min-w-100 xl:min-w-120"/>
                 }</For>
             </div>
-        </div>
+        </Section>
     </Show>;
 }
