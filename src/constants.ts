@@ -38,7 +38,6 @@ export const PROJECT_REPOS: RepositoryName[] = shuffleArray([
 ]);
 
 export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
-    //////////// Local badges ////////////
     {
         name: "rushii",
         badgeUrl: "/88x31/rushii.webp",
@@ -119,6 +118,59 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     //     badgeUrl: "https://livia.my/static/57.gif",
     //     linkUrl: "https://livia.my",
     // },
+]);
+
+export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
+    {
+        name: "lívia",
+        badgeUrl: "https://avatars.githubusercontent.com/u/238446247?v=4",
+        linkUrl: "https://github.com/mreowmrrp",
+    },
+    {
+        name: "Xinto",
+        badgeUrl: "https://avatars.githubusercontent.com/u/48173186?v=4",
+        linkUrl: "https://xinto.dev/",
+    },
+    {
+        name: "AAgaming",
+        badgeUrl: "https://avatars.githubusercontent.com/u/42613600?v=4",
+        linkUrl: "https://aagaming.me",
+    },
+    {
+        name: "mantikafasi",
+        badgeUrl: "https://avatars.githubusercontent.com/u/67705577?v=4",
+        linkUrl: "https://github.com/mantikafasi",
+    },
+    {
+        name: "zt",
+        badgeUrl: "https://avatars.githubusercontent.com/u/31907977?v=4",
+        linkUrl: "https://zt64.dev",
+    },
+    {
+        name: "Dolfies",
+        badgeUrl: "https://avatars.githubusercontent.com/u/47677887?v=4",
+        linkUrl: "https://github.com/dolfies",
+    },
+    {
+        name: "fawn",
+        badgeUrl: "https://avatars.githubusercontent.com/u/36301891?v=4",
+        linkUrl: "https://fawn.moe",
+    },
+    {
+        name: "fres",
+        badgeUrl: "https://avatars.githubusercontent.com/u/126067139?v=4",
+        linkUrl: "https://github.com/fres621",
+    },
+    {
+        name: "Juby",
+        badgeUrl: "https://avatars.githubusercontent.com/u/31005896?v=4",
+        linkUrl: "https://github.com/juby210"
+    },
+    {
+        name: "OmegaSunkey",
+        badgeUrl: "https://omegasunkey.pages.dev/avatar.webp",
+        linkUrl: "https://omegasunkey.pages.dev/",
+    },
 ]);
 
 /**

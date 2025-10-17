@@ -2,7 +2,7 @@ import { JSX } from 'solid-js';
 import { NAME_IPA_READING, PROJECT_REPOS, URLS } from "../constants";
 import { Link } from "../components/Link";
 import { ClassProps } from "../components/ClassProps";
-import { AllBadges } from "../components/Badges";
+import { AllBadges, AllProfileBadges } from "../components/Badges";
 import { BlogSection } from "../components/BlogPosts";
 import Email from "../components/Email";
 import { ProjectsSection } from "../components/Projects";
@@ -26,7 +26,10 @@ function Main(props: ClassProps): JSX.Element {
                 </div>
 
                 <Divider class="mx-6 grow"/>
-                <AllBadges class="mx-10"/>
+                <div class="flex flex-col gap-y-5">
+                    <AllBadges class="mx-10"/>
+                    <AllProfileBadges class="mx-10"/>
+                </div>
             </div>
 
             <Footer class="my-10"/>
