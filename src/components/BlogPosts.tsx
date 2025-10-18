@@ -77,12 +77,14 @@ export function BlogSection(props: ClassProps): JSX.Element {
 
     return <Show when={posts()?.length}>
         <Section title="Blog" class={props.class}>
-            <div class="flex flex-col items-center w-full onload-animation
+            <div class="flex flex-col items-center w-full
                         gap-1 lg:gap-4">
                 <For each={posts()}>
                     {(post, idx) =>
                         <Show when={idx() < 8}>
-                            <BlogPost post={post} class="w-full max-w-190 md:min-w-100 xl:min-w-120"/>
+                            <BlogPost
+                                post={post}
+                                class="w-full max-w-190 md:min-w-100 xl:min-w-120 onload-animation"/>
                         </Show>
                     }
                 </For>

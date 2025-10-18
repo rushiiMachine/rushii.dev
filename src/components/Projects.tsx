@@ -140,12 +140,11 @@ export function ProjectsSection(props: { repos: RepositoryName[] } & ClassProps)
 
     return <Show when={repos()?.length}>
         <Section title="Projects" class={props.class}>
-            <div class="flex flex-row flex-wrap justify-center onload-animation
-                        gap-1 lg:gap-4">
+            <div class="flex flex-row flex-wrap justify-center gap-1 lg:gap-4">
                 <For each={repos()}>{repo =>
                     <ProjectRepo
                         repo={repo}
-                        class="grow max-w-150 md:min-w-100 xl:min-w-120"/>
+                        class="grow max-w-150 md:min-w-100 xl:min-w-120 onload-animation"/>
                 }</For>
             </div>
         </Section>
