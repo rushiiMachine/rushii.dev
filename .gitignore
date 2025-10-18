@@ -2,3 +2,5 @@
 /dist/
 .idea
 *.iml
+.env.local
+.env.*.local

@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  vite-plugin-compile-time:
+    hash: da6bfc8a5102a0704a61d968be9f6a659a0c19e4e767251519fc39715e6134ac
+    path: patches/vite-plugin-compile-time.patch
+
 importers:
 
   .:
@@ -53,7 +58,7 @@ importers:
         version: 7.1.10(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.39.0)
       vite-plugin-compile-time:
         specifier: ^0.4.6
-        version: 0.4.6(vite@7.1.10(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.39.0))
+        version: 0.4.6(patch_hash=da6bfc8a5102a0704a61d968be9f6a659a0c19e4e767251519fc39715e6134ac)(vite@7.1.10(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.39.0))
       vite-plugin-html:
         specifier: ^3.2.2
         version: 3.2.2(vite@7.1.10(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.39.0))
@@ -2930,7 +2935,7 @@ snapshots:
 
   validate-html-nesting@1.2.2: {}
 
-  vite-plugin-compile-time@0.4.6(vite@7.1.10(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.39.0)):
+  vite-plugin-compile-time@0.4.6(patch_hash=da6bfc8a5102a0704a61d968be9f6a659a0c19e4e767251519fc39715e6134ac)(vite@7.1.10(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.39.0)):
     dependencies:
       '@babel/generator': 7.26.9
       '@babel/parser': 7.26.9

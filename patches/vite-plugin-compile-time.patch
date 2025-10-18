@@ -1,0 +1,43 @@
+diff --git a/dist/index.js b/dist/index.js
+index d94fd28b855b6e673f0a509ae2eb6913ac2ba59a..dd647364f3bf0569ac2265def2dd65382e40034b 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -158,13 +158,15 @@ var Transformer = class {
+       dependencies
+     };
+   }
+-  async handleImport(code, filepath) {
++  async handleImport(code, filepath, env) {
+     if (!isInCompileScript(filepath)) return;
++
+     const { mod, dependencies } = await bundleRequire({
+       filepath,
+       esbuildOptions: {
+         banner: {
+-          js: COMPILE_TIME_FUNCTION_INJECT
++          js: COMPILE_TIME_FUNCTION_INJECT +
++              `Object.assign(import.meta, { env: JSON.parse("${JSON.stringify(env).replaceAll('"', '\\"')}") });`
+         }
+       }
+     });
+@@ -238,6 +240,7 @@ var createPlugins = () => {
+   let useSourceMap = false;
+   const loadCache = /* @__PURE__ */ new Map();
+   const transformer = new Transformer();
++  let env;
+   return [
+     {
+       name: "compile-time:insert-placeholders",
+@@ -281,8 +284,11 @@ var createPlugins = () => {
+     {
+       name: "compile-time:import",
+       enforce: "pre",
++      configResolved(resolvedConfig) {
++        env = resolvedConfig.env;
++      },
+       async transform(code, id) {
+-        const result = await transformer.handleImport(code, id);
++        const result = await transformer.handleImport(code, id, env);
+         if (!result) return;
+         if (result.dependencies) {
+           result.dependencies.forEach((filepath) => {

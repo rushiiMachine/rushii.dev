@@ -2,6 +2,7 @@
   "name": "rushii-website",
   "version": "0.0.0",
   "description": "Personal website for rushii",
+  "type": "module",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -33,6 +34,9 @@
     "onlyBuiltDependencies": [
       "@tailwindcss/oxide",
       "esbuild"
-    ]
+    ],
+    "patchedDependencies": {
+      "vite-plugin-compile-time": "patches/vite-plugin-compile-time.patch"
+    }
   }
 }

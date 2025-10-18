@@ -1,5 +1,5 @@
 import { JSX } from 'solid-js';
-import { NAME_IPA_READING, PROJECT_REPOS, URLS } from "../constants";
+import { NAME_IPA_READING, URLS } from "../constants";
 import { Link } from "../components/Link";
 import { ClassProps } from "../components/ClassProps";
 import { AllBadges, AllProfileBadges } from "../components/Badges";
@@ -22,7 +22,7 @@ function Main(props: ClassProps): JSX.Element {
 
                 <div class="flex flex-row flex-wrap min-h-max gap-10
                             px-4 md:px-16 3xl:justify-center">
-                    <ProjectsSection repos={PROJECT_REPOS} class="3xl:max-w-1/2"/>
+                    <ProjectsSection class="3xl:max-w-1/2"/>
                     <BlogSection class="3xl:max-w-1/3"/>
                 </div>
 

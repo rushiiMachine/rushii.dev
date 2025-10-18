@@ -1,78 +1,13 @@
 import { ClassProps } from "./ClassProps";
 import { createResource, For, JSX, Show } from "solid-js";
-import { Endpoints } from "@octokit/types";
 import { OcLaw2, OcLinkexternal2, OcStarfill2 } from "solid-icons/oc";
 import { Link } from "./Link";
 import { makeCache } from "@solid-primitives/resource";
-import { LANGUAGE_COLORS } from "../constants";
+import { LANGUAGE_COLORS, PROJECT_REPOS } from "../constants";
 import { humanize } from "../utils";
 import { Section } from "./Section";
-
-type GetUserRepoType = Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"];
-type GetUserReposType = Endpoints["GET /users/{username}/repos"]["response"]["data"];
-
-export type RepositoryName = `${string}/${string}`;
-
-export interface Repository {
-    owner: string;
-    name: string;
-    description: string;
-    url: string;
-    license?: string;
-    language?: string;
-    stars: number;
-}
-
-export async function fetchRepositories(repositoryNames: RepositoryName[]): Promise<Repository[]> {
-    // Group all the repository names by owner to group API calls.
-    const resourceOwners: Record<string, string[]> = repositoryNames.reduce((all, current) => {
-        const [owner, repo] = current.split("/");
-        return {
-            ...all,
-            [owner]: (all[owner] ?? []).concat([repo]),
-        };
-    }, {});
-
-    const promises: Promise<Repository[]>[] = [];
-
-    for (const [owner, repos] of Object.entries(resourceOwners)) {
-        const url: string = repos.length === 1
-            ? `https://api.github.com/repos/${owner}/${repos[0]}?per_page=100&sort=created&direction=asc`
-            : `https://api.github.com/users/${owner}/repos?per_page=100&sort=created&direction=asc`;
-
-        const resp = fetch(url, {
-            headers: {
-                "Content-Type": "application/vnd.github+json",
-                "User-Agent": "rushii.dev",
-                "X-GitHub-Api-Version": "2022-11-28",
-            },
-        });
-
-        const data: Promise<GetUserRepoType | GetUserReposType> = resp.then(r => r.json());
-
-        const parsed: Promise<Repository[]> = data.then(data => {
-            const wrapped = Array.isArray(data) ? data : [data];
-
-            return wrapped
-                .filter(repo => repositoryNames.includes(repo.full_name as RepositoryName))
-                .map(repo => ({
-                    owner: repo.owner.login,
-                    name: repo.name,
-                    description: repo.description,
-                    url: repo.html_url,
-                    license: repo.license?.spdx_id,
-                    language: repo.language,
-                    stars: repo.stargazers_count ?? 0,
-                }));
-        })
-
-        promises.push(parsed);
-    }
-
-    // Flatten and sort by stars descending
-    return Promise.all(promises)
-        .then(repos => repos.flat().sort((a, b) => b.stars - a.stars));
-}
+import { hardcodedRepositoriesData } from "../hardcoded.compile";
+import { fetchRepositories, Repository } from "../api";
 
 export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Element {
     return <a
@@ -97,7 +32,7 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
             <Show when={props.repo.language && LANGUAGE_COLORS[props.repo.language]}>
                 <div class="flex flex-row gap-2 items-center">
                     <div class="rounded-full brightness-125 size-3.5 md:size-4"
-                         style={`background-color: ${LANGUAGE_COLORS[props.repo.language]}`}/>
+                         style={`background-color: ${LANGUAGE_COLORS[props.repo.language!!]}`}/>
                     <p>{props.repo.language}</p>
                 </div>
             </Show>
@@ -130,13 +65,15 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
     </a>
 }
 
-export function ProjectsSection(props: { repos: RepositoryName[] } & ClassProps): JSX.Element {
-    const [cachingFetcher] = makeCache(() => fetchRepositories(props.repos), {
-        expires: 21600, // 6 hours
+export function ProjectsSection(props: ClassProps): JSX.Element {
+    const [cachingFetcher] = makeCache(() => fetchRepositories(PROJECT_REPOS), {
+        expires: 2.16e7, // 6 hours
         storage: window.localStorage,
         sourceHash: () => "projects",
     });
-    const [repos] = createResource(cachingFetcher);
+    const [repos] = createResource(cachingFetcher, {
+        initialValue: hardcodedRepositoriesData,
+    });
 
     return <Show when={repos()?.length}>
         <Section title="Projects" class={props.class}>

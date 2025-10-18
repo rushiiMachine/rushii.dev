@@ -4,33 +4,8 @@ import { URLS } from "../constants";
 import { makeCache } from "@solid-primitives/resource";
 import { ClassProps } from "./ClassProps";
 import { Section } from "./Section";
-
-export interface BlogPostData {
-    title: string;
-    summary: string;
-    tags: string[];
-    published: string;
-    url: string;
-}
-
-export const fetchBlogPosts: () => Promise<BlogPostData[]> = async () => {
-    const json = await fetch(URLS.BlogPosts)
-        .then(res => res.json() as Promise<any>);
-
-    const posts: BlogPostData[] = json.map(post => ({
-        title: post.title,
-        summary: post.description,
-        published: post.published,
-        tags: post.tags,
-        url: URLS.Blog + post.link,
-    }));
-
-    // Sort descending by time published
-    posts.sort(({ published: a }, { published: b }) =>
-        new Date(b).getTime() - new Date(a).getTime());
-
-    return posts;
-};
+import { hardcodedBlogData } from "../hardcoded.compile";
+import { BlogPostData, fetchBlogPosts } from "../api";
 
 function BlogPost(props: { post: BlogPostData } & ClassProps): JSX.Element {
     const timeFormatted = createMemo(() => {
@@ -69,11 +44,13 @@ function BlogPost(props: { post: BlogPostData } & ClassProps): JSX.Element {
 
 export function BlogSection(props: ClassProps): JSX.Element {
     const [cachingFetcher] = makeCache(fetchBlogPosts, {
-        expires: 3600, // 1 hour
+        expires: 3.6e6, // 1 hour
         storage: window.localStorage,
         sourceHash: () => "blogs",
     });
-    const [posts] = createResource(cachingFetcher);
+    const [posts] = createResource(cachingFetcher, {
+        initialValue: hardcodedBlogData,
+    });
 
     return <Show when={posts()?.length}>
         <Section title="Blog" class={props.class}>

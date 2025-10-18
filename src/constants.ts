@@ -1,8 +1,7 @@
 import { BadgeData } from "./components/Badges";
 import { shuffleArray } from "./utils";
-import { RepositoryName } from "./components/Projects";
+import { RepositoryName } from "./api";
 
-// @ts-ignore
 const EMAIL_BASE64 = compileTime(btoa("contact@rushii.dev"));
 export const EMAIL = atob(EMAIL_BASE64);
 
