@@ -134,7 +134,7 @@ export function ProjectsSection(props: { repos: RepositoryName[] } & ClassProps)
     const [cachingFetcher] = makeCache(() => fetchRepositories(props.repos), {
         expires: 8.64e+7, // 1 Day
         storage: window.localStorage,
-        storageKey: "CACHE_PROJECT_REPOS",
+        sourceHash: () => "projects",
     });
     const [repos] = createResource(cachingFetcher);
 

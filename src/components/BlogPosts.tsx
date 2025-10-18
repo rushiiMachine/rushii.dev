@@ -71,7 +71,7 @@ export function BlogSection(props: ClassProps): JSX.Element {
     const [cachingFetcher] = makeCache(fetchBlogPosts, {
         expires: 8.64e+7, // 1 Day
         storage: window.localStorage,
-        storageKey: "CACHE_BLOG_POSTS",
+        sourceHash: () => "blogs",
     });
     const [posts] = createResource(cachingFetcher);
 

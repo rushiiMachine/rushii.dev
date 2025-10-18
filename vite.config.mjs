@@ -16,6 +16,7 @@ export default defineConfig({
             }
         }),
         solidPlugin({
+            dev: true,
             hot: true,
             ssr: true,
         }),
