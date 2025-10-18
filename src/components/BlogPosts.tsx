@@ -27,7 +27,7 @@ export const fetchBlogPosts: () => Promise<BlogPostData[]> = async () => {
 
     // Sort descending by time published
     posts.sort(({ published: a }, { published: b }) =>
-        new Date(a).getTime() - new Date(b).getTime());
+        new Date(b).getTime() - new Date(a).getTime());
 
     return posts;
 };
@@ -69,7 +69,7 @@ function BlogPost(props: { post: BlogPostData } & ClassProps): JSX.Element {
 
 export function BlogSection(props: ClassProps): JSX.Element {
     const [cachingFetcher] = makeCache(fetchBlogPosts, {
-        expires: 8.64e+7, // 1 Day
+        expires: 3600, // 1 hour
         storage: window.localStorage,
         sourceHash: () => "blogs",
     });

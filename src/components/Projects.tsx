@@ -132,7 +132,7 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
 
 export function ProjectsSection(props: { repos: RepositoryName[] } & ClassProps): JSX.Element {
     const [cachingFetcher] = makeCache(() => fetchRepositories(props.repos), {
-        expires: 8.64e+7, // 1 Day
+        expires: 21600, // 6 hours
         storage: window.localStorage,
         sourceHash: () => "projects",
     });
