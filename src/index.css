@@ -43,3 +43,20 @@ a {
 .hover-expand {
     @apply transition hover:scale-105
 }
+
+@keyframes fade-in-up {
+    0% {
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.onload-animation {
+    opacity: 0;
+    animation: 500ms fade-in-up;
+    animation-fill-mode: forwards;
+}
