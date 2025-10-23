@@ -18,6 +18,11 @@ html {
     user-drag: none;
 }
 
+*::selection {
+    background-color: rgb(245 189 252 / 30%);
+    color: white;
+}
+
 br {
     line-height: 2rem;
     height: 2rem;
