@@ -134,12 +134,11 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         badgeUrl: "/88x31/paige.gif",
         linkUrl: "https://codeberg.org/paige",
     },
-    // {
-    //     name: "lívia",
-    //     // badgeUrl: "https://livia.my/static/57.gif",
-    //     badgeUrl: "https://avatars.githubusercontent.com/u/238446247?v=4", // TODO
-    //     linkUrl: "https://github.com/mreowmrrp",
-    // },
+    {
+        name: "lívia",
+        badgeUrl: "/88x31/livia.gif",
+        linkUrl: "https://acpi.at/",
+    },
     // {
     //     name: "mantikafasi",
     //     badgeUrl: "https://avatars.githubusercontent.com/u/67705577?v=4", // TODO
@@ -149,6 +148,11 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         name: "zt",
         badgeUrl: "/88x31/zt.png",
         linkUrl: "https://zt64.dev",
+    },
+    {
+        name: "Rosie",
+        badgeUrl: "/88x31/rosie.png",
+        linkUrl: "https://github.com/acquitelol",
     },
 ]);
 
@@ -182,11 +186,6 @@ export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
         name: "OmegaSunkey",
         badgeUrl: "https://omegasunkey.pages.dev/avatar.webp",
         linkUrl: "https://omegasunkey.pages.dev/",
-    },
-    {
-        name: "Rosie",
-        badgeUrl: "https://avatars.githubusercontent.com/u/94182437?v=4",
-        linkUrl: "https://github.com/acquitelol",
     },
     {
         name: "llsc",
