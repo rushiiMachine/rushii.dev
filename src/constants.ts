@@ -139,11 +139,6 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         badgeUrl: "/88x31/livia.gif",
         linkUrl: "https://acpi.at/",
     },
-    // {
-    //     name: "mantikafasi",
-    //     badgeUrl: "https://avatars.githubusercontent.com/u/67705577?v=4", // TODO
-    //     linkUrl: "https://github.com/mantikafasi",
-    // },
     {
         name: "zt",
         badgeUrl: "/88x31/zt.png",
@@ -154,6 +149,11 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         badgeUrl: "/88x31/rosie.png",
         linkUrl: "https://github.com/acquitelol",
     },
+    {
+        name: "caitlyn",
+        badgeUrl: "/88x31/caitlyn.png",
+        linkUrl: "caitlyn.moe",
+    }
 ]);
 
 export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
@@ -196,6 +196,11 @@ export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
         name: "Canny",
         badgeUrl: "https://avatars.githubusercontent.com/u/198346728?v=4",
         linkUrl: "https://github.com/Canny1913",
+    },
+    {
+        name: "mantikafasi",
+        badgeUrl: "https://avatars.githubusercontent.com/u/67705577?v=4",
+        linkUrl: "https://github.com/mantikafasi",
     },
 ]);
 
