@@ -82,9 +82,9 @@ function draw(
     canvas: HTMLCanvasElement,
     ctx: CanvasRenderingContext2D,
     particles: Particle[],
-    mouseX?: number,
-    mouseY?: number,
-    mousePressed?: boolean,
+    mouseX: number,
+    mouseY: number,
+    mousePressed: boolean,
 ) {
     ctx.reset();
 
@@ -125,14 +125,16 @@ function initDraw(
     const particles: Particle[] = new Array(requiredParticleCount(canvas.width));
     let canvasMouseX: number, canvasMouseY: number, mousePressed: boolean;
 
+    if (!ctx) return;
+
     // Initialize particles
     for (let i = 0; i < particles.length; i++) {
         particles[i] = createParticle(canvas.width, canvas.height);
     }
 
     const resizeListener = (_e: UIEvent) => {
-        canvas.width = window.visualViewport.width;
-        canvas.height = window.visualViewport.height;
+        canvas.width = window.visualViewport!.width;
+        canvas.height = window.visualViewport!.height;
 
         const newParticleCount = requiredParticleCount(canvas.width);
         while (particles.length > newParticleCount)
@@ -177,14 +179,14 @@ function initDraw(
 const isTouchDevice = "ontouchstart" in window;
 
 export function VertexBackground(props: ClassProps): JSX.Element {
-    let canvas: HTMLCanvasElement = undefined;
+    let canvas!: HTMLCanvasElement;
 
     onMount(() => initDraw(!isTouchDevice, canvas));
 
     return <canvas
         ref={canvas}
-        width={window.visualViewport.width}
-        height={window.visualViewport.height}
+        width={window.visualViewport?.width}
+        height={window.visualViewport?.height}
         class={props.class || ""}
     />
 }

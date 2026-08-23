@@ -19,7 +19,7 @@ function BlogPost(props: { post: BlogPostData } & ClassProps): JSX.Element {
 
     return <a href={props.post.url}
               aria-label="A blog post"
-              class={`!no-underline
+              class={`no-underline!
                       group flex flex-col gap-3 p-8 rounded-xl hover-offset
                       bg-white/15 border-l-4 border-white/50 hover:border-pink-200 shadow-xl 
                       ${props.class || ""}`}>
@@ -33,7 +33,7 @@ function BlogPost(props: { post: BlogPostData } & ClassProps): JSX.Element {
         <Show when={props.post.tags.length > 0}>
             <div class="flex flex-row flex-wrap gap-2 mt-4">
                 <For each={props.post.tags}>{tag =>
-                    <div class="px-2 py-1.5 rounded-lg hover-offset !no-underline text-sm bg-white/20">
+                    <div class="px-2 py-1.5 rounded-lg hover-offset no-underline! text-sm bg-white/20">
                         {tag}
                     </div>
                 }</For>
@@ -69,7 +69,7 @@ export function BlogSection(props: ClassProps): JSX.Element {
             <Show when={(posts()?.length ?? 0) > 8}>
                 <Link url={URLS.Blog}
                       class="self-center py-2 px-3 mt-4 max-w-max rounded-md hover-offset
-                         !no-underline bg-white/20 text-white/80">
+                         no-underline! bg-white/20 text-white/80">
                     See More
                 </Link>
             </Show>

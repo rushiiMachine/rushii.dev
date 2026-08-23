@@ -44,7 +44,7 @@ function Bio(props: ClassProps): JSX.Element {
         <div class="flex flex-row text-nowrap gap-4 items-center mb-5">
             <img width={32}
                  height={32}
-                 alt={null}
+                 alt={undefined}
                  src="/favicon.png"
                  class="max-w-none max-h-none"
                  style="image-rendering: smooth;"/>

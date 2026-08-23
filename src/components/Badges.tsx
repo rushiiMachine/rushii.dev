@@ -27,7 +27,7 @@ function Badge(props: ClassProps & BadgeData): JSX.Element {
              style="image-rendering: pixelated;"
              onError={(e) => {
                  console.error(`Failed to load ${props.name}'s badge!`)
-                 e.currentTarget.parentElement.remove();
+                 e.currentTarget.parentElement?.remove();
              }}
         />
     </a>;
@@ -96,7 +96,7 @@ export function ProfileBadge(props: ClassProps & BadgeData): JSX.Element {
              style="image-rendering: smooth;"
              onError={(e) => {
                  console.error(`Failed to load ${props.name}'s GitHub profile image!`);
-                 e.currentTarget.parentElement.remove();
+                 e.currentTarget.parentElement?.remove();
              }}
         />
     </a>

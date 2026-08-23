@@ -15,7 +15,7 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
         target="_blank"
         referrerpolicy="strict-origin"
         class={`group flex flex-col gap-2 p-6 rounded-lg hover-offset
-                bg-white/20 border-l-4 border-white/50 hover:border-pink-200 shadow-xl !no-underline
+                bg-white/20 border-l-4 border-white/50 hover:border-pink-200 shadow-xl no-underline!
                 ${props.class || ""}`}>
         <div class="flex flex-row gap-2 w-full text-white/80 group-hover:text-pink-200
                     text-sm lg:text-base">
@@ -37,21 +37,21 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
                 </div>
             </Show>
 
-            <Link url={props.repo.url + "/stargazers"} class="!text-white !no-underline">
+            <Link url={props.repo.url + "/stargazers"} class="text-white! no-underline!">
                 <div class="flex flex-row gap-2 items-center hover-offset">
                     <OcStarfill2
                         size={20}
                         color="#E3B341"
                         class="align-middle size-4 md:size-auto"
                         style={{ "filter": "drop-shadow(0px 0px 4px #E3B34188)" }}/>
-                    <p class="!text-white !no-underline">{humanize(props.repo.stars)}</p>
+                    <p class="text-white! no-underline!">{humanize(props.repo.stars)}</p>
                 </div>
             </Link>
 
             <Show when={props.repo.license}>
                 <Link noReferrer newSite
                       url={`https://spdx.org/licenses/preview/${props.repo.license}`}
-                      class="!text-white !no-underline">
+                      class="text-white! no-underline!">
                     <div class="flex flex-row gap-2 items-center">
                         <OcLaw2
                             size={20}
