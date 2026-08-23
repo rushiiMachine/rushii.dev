@@ -66,21 +66,24 @@ function Bio(props: ClassProps): JSX.Element {
                 {NAME_IPA_READING}
             </Link>
         </div>
-        <p>I'm a software developer living on the pacific coast.</p>
+        <p>I'm a software developer currently studying Computer Science.</p>
         <p>
-            I'm someone who's passionate about Android internals, Android modding, and developing various utilities
-            that improve user experience for a variety of things.
-            I love working with <Link url={URLS.Kotlin}>Kotlin</Link> and <Link url={URLS.Rust}>Rust</Link>, making
-            Android apps with <Link url={URLS.Compose}>Jetpack Compose</Link>, and reverse-engineering + modding
-            other people's Android apps.
+            I love working with Android internals, modding apps, and developing utilities that improve UX.
+            I like working with <Link url={URLS.Kotlin}>Kotlin</Link> and <Link url={URLS.Rust}>Rust</Link>, making
+            Android apps with <Link url={URLS.Compose}>Jetpack Compose</Link>, and reverse-engineering.
         </p>
         <p>
-            Most of my own projects are open-source, and I sometimes contribute back to projects that I use as well.
-            Nowadays, I'm mostly working on <Link url={URLS.Aliucord}>Aliucord</Link>, an open-source mod for a
-            proprietary, legacy, Discord client. It has gathered over 1+ million downloads and over 250+ unique
-            plugins contributed by dozens of developers.
+            Most of my own projects are open-source, and I occasionally contribute back to projects that I use as well.
+            Nowadays, I'm mainly working on <Link url={URLS.Aliucord}>Aliucord</Link>, an open-source mod for Discord's
+            proprietary Android client. It currently has over 1+ million downloads and 300+ unique plugins contributed
+            by dozens of developers. You can view some of my other projects below,
+            or on my <Link url={URLS.GithubProfile}>Github</Link>.
         </p>
-        <p class="mt-4">I am also open to jobs, internships, and contract work. Please contact me at <Email/></p>
+        <p class="mt-4">
+            I am also looking for jobs, internships, and contract work in the Greater Seattle area.
+            <br/>
+            Please feel free to contact me at <Email/>
+        </p>
     </div>
 }
 
