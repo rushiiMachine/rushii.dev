@@ -20,7 +20,7 @@ function BlogPost(props: { post: BlogPostData } & ClassProps): JSX.Element {
     return <a href={props.post.url}
               aria-label="A blog post"
               class={`no-underline!
-                      group flex flex-col gap-3 p-8 rounded-xl hover-offset
+                      group flex flex-col gap-3 p-8 rounded-l-sm rounded-r-xl hover-offset
                       bg-white/15 border-l-4 border-white/50 hover:border-pink-200 shadow-xl 
                       ${props.class || ""}`}>
         <time class="text-sm font-semibold opacity-50 mb-2"

@@ -28,9 +28,10 @@ const SOCIALS = [
 
 function SocialsItem(props: (typeof SOCIALS)[0]): JSX.Element {
     return <>
-        <Link url={props.url} newSite class="!no-underline">
-            <div class="group flex flex-row items-center
-            			space-x-3 px-5 py-3 min-w-50 hover-offset bg-white/30 rounded-xl">
+        <Link url={props.url} newSite class="no-underline!">
+            <div class="group flex flex-row grow items-center
+                        rounded-l-sm rounded-r-lg border-l-4 border-white/50
+            			space-x-3 px-5 py-4 min-w-xs hover-offset bg-white/10 ">
                 <props.icon color={props.color} style={props.style}
                             size={24} class="text-white group-hover:text-pink-200"/>
                 <p class="text-md text-pink-100 group-hover:text-pink-200">{props.name}</p>

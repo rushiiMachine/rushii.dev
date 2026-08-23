@@ -14,7 +14,7 @@ export function ProjectRepo(props: { repo: Repository } & ClassProps): JSX.Eleme
         href={props.repo.url}
         target="_blank"
         referrerpolicy="strict-origin"
-        class={`group flex flex-col gap-2 p-6 rounded-lg hover-offset
+        class={`group flex flex-col gap-2 p-6 rounded-l-sm rounded-r-lg hover-offset
                 bg-white/20 border-l-4 border-white/50 hover:border-pink-200 shadow-xl no-underline!
                 ${props.class || ""}`}>
         <div class="flex flex-row gap-2 w-full text-white/80 group-hover:text-pink-200

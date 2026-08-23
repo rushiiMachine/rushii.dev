@@ -12,10 +12,17 @@ import { Divider } from "../components/Divider";
 function Main(props: ClassProps): JSX.Element {
     return <div class={`text-gray-200 text-base h-screen w-screen ${props.class || ""}`}>
         <div class="flex flex-col min-h-full">
-            <div class="flex flex-col pt-16 grow gap-y-16 min-h-full">
-                <div class="flex flex-row flex-wrap self-center gap-14 mx-10">
-                    <Bio class="min-w-2/3 grow flex-1/6"/>
-                    <Socials class="flex-2 md:mx-10"/>
+            <div class="flex flex-col pt-16 gap-y-16 min-h-full">
+                <div class="flex flex-row self-center gap-14 mx-10
+                            flex-wrap lg:flex-nowrap">
+                    <img width={256}
+                         height={222}
+                         alt="Mizuki stamp"
+                         src="/mizuki_stamp_1.png"
+                         class="mx-10 hidden xl:block
+                                object-contain drop-shadow-red-200 drop-shadow-md"/>
+                    <Bio/>
+                    <Socials class="flex-1 mx-5"/>
                 </div>
 
                 <Divider class="mx-10 hidden md:block"/>
@@ -28,7 +35,7 @@ function Main(props: ClassProps): JSX.Element {
 
                 <Divider class="mx-10 grow"/>
                 <div class="flex flex-col self-center gap-y-6 mx-10
-                            lg:max-w-3/4 2xl:max-w-2/3 3xl:max-w-1/2">
+                            md:max-w-3/4 xl:max-w-2/3 2xl:max-w-1/2 3xl:max-w-2/5">
                     <AllBadges/>
                     <AllProfileBadges/>
                 </div>
@@ -46,8 +53,7 @@ function Bio(props: ClassProps): JSX.Element {
                  height={32}
                  alt={undefined}
                  src="/favicon.png"
-                 class="max-w-none max-h-none"
-                 style="image-rendering: smooth;"/>
+                 class="max-w-none max-h-none drop-shadow-red-100 drop-shadow-sm"/>
             <p class="font-light text-4xl md:text-5xl">
                 hii, i'm <span class="text-pink-300 font-normal">rushii</span>!
             </p>
