@@ -160,6 +160,16 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         badgeUrl: "/88x31/worf.gif",
         linkUrl: "https://worf.win",
     },
+    {
+        name: "Shiro",
+        badgeUrl: "/88x31/shiro.png",
+        linkUrl: "https://kneesox.moe",
+    },
+    {
+        name: "mugman",
+        badgeUrl: "/88x31/mugman.gif",
+        linkUrl: "https://mugman.tech",
+    },
 ]);
 
 export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
