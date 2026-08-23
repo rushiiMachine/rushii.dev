@@ -66,7 +66,7 @@ function Bio(props: ClassProps): JSX.Element {
                 {NAME_IPA_READING}
             </Link>
         </div>
-        <p>I'm a software developer currently studying Computer Science.</p>
+        <p>I'm a software developer on the Pacific Coast, currently studying Computer Science.</p>
         <p>
             I love working with Android internals, modding apps, and developing utilities that improve UX.
             I like working with <Link url={URLS.Kotlin}>Kotlin</Link> and <Link url={URLS.Rust}>Rust</Link>, making
