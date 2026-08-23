@@ -62,22 +62,18 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     {
         name: "Megu",
         badgeUrl: "/88x31/megu.png",
-        linkUrl: "https://megu.dev",
+        linkUrl: "https://github.com/MeguminSama",
     },
     {
-        name: "khcrysalis",
+        name: "claration",
         badgeUrl: "/88x31/samara.png",
-        linkUrl: "https://khcrysalis.dev",
+        linkUrl: "https://claration.dev",
     },
     {
         name: "Shoritsu",
         badgeUrl: "/88x31/shoritsu.webp",
-        linkUrl: "https://shoritsu.moe",
-    },
-    {
-        name: "KrystalSkull",
-        badgeUrl: "/88x31/krystalskull.gif",
-        linkUrl: "https://krstlskll69.github.io",
+        // linkUrl: "https://shoritsu.moe",
+        linkUrl: "https://github.com/shoritsu",
     },
     {
         name: "py.on",
@@ -97,7 +93,7 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     {
         name: "Wing",
         badgeUrl: "/88x31/wing.gif",
-        linkUrl: "https://wingio.xyz",
+        linkUrl: "https://iamw.ing/",
     },
     {
         name: "Chloe",
@@ -112,7 +108,7 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     {
         name: "rini",
         badgeUrl: "/88x31/rinicide.png",
-        linkUrl: "https://github.com/rniii/rinici.de",
+        linkUrl: "https://github.com/rniii",
     },
     {
         name: "Xinto",
@@ -132,12 +128,12 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     {
         name: "Paige",
         badgeUrl: "/88x31/paige.gif",
-        linkUrl: "https://codeberg.org/paige",
+        linkUrl: "https://paige.moe/",
     },
     {
         name: "lívia",
         badgeUrl: "/88x31/livia.gif",
-        linkUrl: "https://acpi.at/",
+        linkUrl: "https://kyu.re",
     },
     {
         name: "zt",
@@ -152,8 +148,18 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     {
         name: "caitlyn",
         badgeUrl: "/88x31/caitlyn.png",
-        linkUrl: "caitlyn.moe",
-    }
+        linkUrl: "https://caitlyn.moe",
+    },
+    {
+        name: "nin0",
+        badgeUrl: "/88x31/nin0.png",
+        linkUrl: "https://nin0.dev",
+    },
+    {
+        name: "worf",
+        badgeUrl: "/88x31/worf.gif",
+        linkUrl: "https://worf.win",
+    },
 ]);
 
 export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
@@ -171,11 +177,6 @@ export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
         name: "fawn",
         badgeUrl: "https://avatars.githubusercontent.com/u/36301891?v=4",
         linkUrl: "https://fawn.moe",
-    },
-    {
-        name: "fres",
-        badgeUrl: "https://avatars.githubusercontent.com/u/126067139?v=4",
-        linkUrl: "https://github.com/fres621",
     },
     {
         name: "Juby",
@@ -196,11 +197,6 @@ export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
         name: "Canny",
         badgeUrl: "https://avatars.githubusercontent.com/u/198346728?v=4",
         linkUrl: "https://github.com/Canny1913",
-    },
-    {
-        name: "mantikafasi",
-        badgeUrl: "https://avatars.githubusercontent.com/u/67705577?v=4",
-        linkUrl: "https://github.com/mantikafasi",
     },
 ]);
 
