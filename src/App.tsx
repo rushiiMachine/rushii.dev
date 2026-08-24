@@ -3,12 +3,13 @@ import Main from "./screens/Main";
 import { VertexBackground } from "./components/VertexBackground";
 
 const useReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isWideScreen = window.matchMedia('(min-width: 1280px)').matches;
 
 function App(): JSX.Element {
     return <div class="flex">
         <Main/>
 
-        <Show when={!useReducedMotion}>
+        <Show when={!useReducedMotion && isWideScreen}>
             <div class="-z-1 fixed opacity-15">
                 <VertexBackground class="max-w-full max-h-full"/>
             </div>
@@ -16,6 +17,10 @@ function App(): JSX.Element {
 
         {/*FIXME: not scaling properly?*/}
         <div class="fixed -z-2 site-background w-screen h-screen"/>
+
+        <Show when={!useReducedMotion && !isWideScreen}>
+            <div class="fixed -z-2 raindrops-background opacity-10 w-screen h-screen"/>
+        </Show>
     </div>;
 }
 

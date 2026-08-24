@@ -41,6 +41,19 @@ a {
     background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/background.webp") no-repeat fixed;
 }
 
+.raindrops-background {
+    background-image: url("/raindrops.png");
+    background-size: 3000px;
+    background-attachment: fixed;
+    animation: raindrop-run 1.8s steps(30) infinite;
+}
+
+@keyframes raindrop-run {
+    100% {
+        background-position: -6000px 0;
+    }
+}
+
 .hover-offset {
     @apply transition hover:-translate-y-0.5 hover:translate-x-0.5
 }
