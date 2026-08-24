@@ -40,9 +40,9 @@ export const PROJECT_REPOS: RepositoryName[] = shuffleArray([
 
 export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
     {
-        name: "rushii",
+        name: "Click to link my 88x31!",
         badgeUrl: "/88x31/rushii.webp",
-        linkUrl: "https://rushii.dev",
+        linkUrl: URLS.BadgesInfo,
     },
     {
         name: "Vencord",
@@ -126,7 +126,7 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         linkUrl: "https://aagaming.me",
     },
     {
-        name: "Paige",
+        name: "paige",
         badgeUrl: "/88x31/paige.gif",
         linkUrl: "https://paige.moe/",
     },

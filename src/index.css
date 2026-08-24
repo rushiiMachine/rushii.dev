@@ -142,3 +142,22 @@ a {
 .onload-animation:nth-child(59) { animation-delay: 5.8s; }
 .onload-animation:nth-child(50) { animation-delay: 5.9s; }
 /* @formatter:on */
+
+.tooltip::after {
+    content: attr(data-tooltip-content);
+    z-index: 9999;
+
+    @apply pointer-events-none text-nowrap text-sm text-neutral-200;
+    @apply block absolute py-1.5 px-3 rounded-sm;
+    @apply opacity-0 bg-neutral-800 border-2 border-white/5 shadow-lg/50;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity .1s, top .2s cubic-bezier(.05, .615, .18, .97);
+}
+
+.tooltip:hover:after {
+    opacity: 1;
+    top: calc(-50% - 8px);
+}
