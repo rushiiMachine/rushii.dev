@@ -81,7 +81,6 @@ function Bio(props: ClassProps): JSX.Element {
         </p>
         <p class="mt-4">
             I am also looking for jobs, internships, and contract work in the Greater Seattle area.
-            <br/>
             Please feel free to contact me at <Email/>
         </p>
     </div>
@@ -92,7 +91,7 @@ function Footer(props: ClassProps): JSX.Element {
         <div class={`flex flex-col w-full items-center
                     text-xs text-gray-300 font-bold ${props.class || ""}`}>
             <p>rushii © All rights reserved</p>
-            <Link url={URLS.WebsiteRepo}>Source Code <span class="text-red-500">❤️</span> GitHub</Link>
+            <Link url={URLS.WebsiteRepo}>Source Code</Link>
         </div>
     </>
 }
