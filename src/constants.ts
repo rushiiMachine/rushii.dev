@@ -170,6 +170,11 @@ export const DEVELOPER_BADGES: BadgeData[] = shuffleArray([
         badgeUrl: "/88x31/mugman.gif",
         linkUrl: "https://mugman.tech",
     },
+    {
+        name: "Elissa",
+        badgeUrl: "/88x31/elissa.png",
+        linkUrl: "https://elissa.moe",
+    }
 ]);
 
 export const DEVELOPER_PROFILES: BadgeData[] = shuffleArray([
